@@ -2,29 +2,139 @@
 <rss version="2.0">
     <channel>
         <title>Web前端</title>
+        <subtitle>=别怕路长梦远,总有星河照耀=</subtitle>
+        <icon>https://hongsheng-xu.github.io/images/favicon.ico</icon>
         <link>https://hongsheng-xu.github.io</link>
+        <author>
+          <name>Hongsheng-xu</name>
+        </author>
         <description>欢迎来到我的博客(๑•ᴗ•๑)~,在这里我们将互相学习交流知识,共同进步,共同成长(≧∀≦)ゞ</description>
         <language>zh-CN</language>
-        <pubDate>Tue, 08 Dec 2020 15:35:12 +0800</pubDate>
-        <lastBuildDate>Tue, 08 Dec 2020 15:35:12 +0800</lastBuildDate>
+        <pubDate>Sun, 13 Dec 2020 12:12:45 +0800</pubDate>
+        <lastBuildDate>Sun, 13 Dec 2020 12:12:45 +0800</lastBuildDate>
+        <category term="web安全" />
+        <category term="seo引擎优化" />
+        <category term="web" />
+        <category term="前端" />
+        <category term="theme" />
         <item>
-            <guid isPermalink="true">https://hongsheng-xu.github.io/2020/12/08/hello-world/</guid>
-            <title>Hello World</title>
-            <link>https://hongsheng-xu.github.io/2020/12/08/hello-world/</link>
-            <pubDate>Tue, 08 Dec 2020 15:35:12 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;Welcome to &lt;a href=&#34;https://hexo.io/&#34;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&#34;https://hexo.io/docs/&#34;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&#34;https://hexo.io/docs/troubleshooting.html&#34;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&#34;https://github.com/hexojs/hexo/issues&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;Quick-Start&#34;&gt;&lt;a href=&#34;#Quick-Start&#34; class=&#34;headerlink&#34; title=&#34;Quick Start&#34;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&#34;Create-a-new-post&#34;&gt;&lt;a href=&#34;#Create-a-new-post&#34; class=&#34;headerlink&#34; title=&#34;Create a new post&#34;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo new &lt;span class=&#34;string&#34;&gt;&amp;quot;My New Post&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;More info: &lt;a href=&#34;https://hexo.io/docs/writing.html&#34;&gt;Writing&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;Run-server&#34;&gt;&lt;a href=&#34;#Run-server&#34; class=&#34;headerlink&#34; title=&#34;Run server&#34;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;More info: &lt;a href=&#34;https://hexo.io/docs/server.html&#34;&gt;Server&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;Generate-static-files&#34;&gt;&lt;a href=&#34;#Generate-static-files&#34; class=&#34;headerlink&#34; title=&#34;Generate static files&#34;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;More info: &lt;a href=&#34;https://hexo.io/docs/generating.html&#34;&gt;Generating&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;Deploy-to-remote-sites&#34;&gt;&lt;a href=&#34;#Deploy-to-remote-sites&#34; class=&#34;headerlink&#34; title=&#34;Deploy to remote sites&#34;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;More info: &lt;a href=&#34;https://hexo.io/docs/one-command-deployment.html&#34;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
+            <guid isPermalink="true">https://hongsheng-xu.github.io/2020/12/13/Hexo/0%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+            <title>零基础使用HEXO搭建个人博客之HEXO及其初始化</title>
+            <link>https://hongsheng-xu.github.io/2020/12/13/Hexo/0%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+            <category term="HEXO搭建个人博客" scheme="https://hongsheng-xu.github.io/categories/Hexo/" />
+            <pubDate>Sun, 13 Dec 2020 12:12:45 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;hexo搭建个人博客&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hexo搭建个人博客&#34;&gt;#&lt;/a&gt; HEXO 搭建个人博客&lt;/h1&gt;
+&lt;h2 id=&#34;准备&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#准备&#34;&gt;#&lt;/a&gt; 准备&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9iZWJiYTBkODAzOGU=&#34;&gt;安装 git&lt;/span&gt;--&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXQtc2NtLmNvbS8=&#34;&gt;git 官网&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC8xM2Y0NWUyNGIxZGU=&#34;&gt;安装 nodejs&lt;/span&gt;--&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==&#34;&gt;nodejs 官网&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC8wYzBkOGQxMGExY2I=&#34;&gt;注册 github&lt;/span&gt;-- 创建一个和 Username 一样名称的仓库&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9pbWdjaHIuY29tL2kvclNOZFo4&#34;&gt; &amp;lt;img src=&amp;quot;https://s3.ax1x.com/2020/12/08/rSNdZ8.md.png&amp;quot; alt=&amp;quot;创建仓库&amp;quot;  /&amp;gt;&lt;/span&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tips: 创建仓库名如果与 Username 不一致，请在下文初始化博客和配置博客文件时使用和仓库名一样的名字！！！&lt;strong&gt;访问链接 https:// 仓库名.github.io 访问&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;git&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git&#34;&gt;#&lt;/a&gt; Git&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;在任意文件里，点击鼠标右键，打开 git bash 输入配置信息&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable&#34;&gt;$git&lt;/span&gt; config --global user.name &lt;span class=&#34;string&#34;&gt;&amp;quot;用户名&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable&#34;&gt;$git&lt;/span&gt; config --global user.email &lt;span class=&#34;string&#34;&gt;&amp;quot;邮箱地址&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 例如:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable&#34;&gt;$git&lt;/span&gt; config --global user.name &lt;span class=&#34;string&#34;&gt;&amp;quot;hongsheng-xu&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable&#34;&gt;$git&lt;/span&gt; config --global user.email &lt;span class=&#34;string&#34;&gt;&amp;quot;1394948572@qq.com&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;在 git bash 里输入&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable&#34;&gt;$ssh&lt;/span&gt;-keygen -t rsa -C  &lt;span class=&#34;string&#34;&gt;&amp;quot;邮箱地址&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#例如: &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable&#34;&gt;$ssh&lt;/span&gt;-keygen -t rsa -C  &lt;span class=&#34;string&#34;&gt;&amp;quot;1394948572@qq.com&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;控制台输出如下:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;Enter file &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;which&lt;/span&gt; to save the key (/c/Users/13949/.ssh/id_rsa):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Created directory &lt;span class=&#34;string&#34;&gt;&amp;#x27;/c/Users/13949/.ssh&amp;#x27;&lt;/span&gt;.&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Enter passphrase (empty &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; no passphrase):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Enter same passphrase again:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Your identification has been saved &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; /c/Users/13949/.ssh/id_rsa&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Your public key has been saved &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; /c/Users/13949/.ssh/id_rsa.pub&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;The key fingerprint is:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#后文输出省略......&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight cmd&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# 打开目录--控制台第二行输出Created directory &amp;#x27;/c/Users/&lt;span class=&#34;number&#34;&gt;13949&lt;/span&gt;/.ssh&amp;#x27;.其中ssh的存放路径为:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;C:\&lt;span class=&#34;title&#34;&gt;Users&lt;/span&gt;\13949\.&lt;span class=&#34;title&#34;&gt;ssh&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;# 打开&lt;span class=&#34;title&#34;&gt;github&lt;/span&gt;&amp;gt;点击个人头像&amp;gt;点击设置(&lt;span class=&#34;title&#34;&gt;Settings&lt;/span&gt;)&amp;gt;点击&lt;span class=&#34;title&#34;&gt;SSH&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;GPG&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;keys&lt;/span&gt;&amp;gt;&lt;span class=&#34;title&#34;&gt;New&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;SSH&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;key&lt;/span&gt;&amp;gt;在路径:&lt;span class=&#34;title&#34;&gt;C&lt;/span&gt;:\&lt;span class=&#34;title&#34;&gt;Users&lt;/span&gt;\13949\.&lt;span class=&#34;title&#34;&gt;ssh&lt;/span&gt;记事本打开&lt;span class=&#34;title&#34;&gt;id_rsa.pub&lt;/span&gt;文件,复制全部到&lt;span class=&#34;title&#34;&gt;New&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;SSH&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;key&lt;/span&gt;中&lt;span class=&#34;title&#34;&gt;key&lt;/span&gt;内容里&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://imgchr.com/i/rSdmMn&#34;&gt;&lt;img data-src=&#34;https://s3.ax1x.com/2020/12/08/rSdmMn.md.png&#34; alt=&#34;rSdmMn.md.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;hexo安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hexo安装&#34;&gt;#&lt;/a&gt; Hexo 安装&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL3poLWNuL2RvY3Mv&#34;&gt;hexo 文档&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvLw==&#34;&gt;hexo 安装&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight cmd&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# 安装hexo, win+R,输入&lt;span class=&#34;built_in&#34;&gt;cmd&lt;/span&gt; 打开控制台输入: &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;e: &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;title&#34;&gt;md&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;blog&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;title&#34;&gt;cd&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;blog&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;title&#34;&gt;npm&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;install&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;hexo&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;cli&lt;/span&gt; -&lt;span class=&#34;title&#34;&gt;g&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;#列如: &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;title&#34;&gt;C&lt;/span&gt;:\&lt;span class=&#34;title&#34;&gt;Users&lt;/span&gt;\13949&amp;gt;&lt;span class=&#34;title&#34;&gt;e&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;title&#34;&gt;E&lt;/span&gt;:\&amp;gt;&lt;span class=&#34;title&#34;&gt;md&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;blog&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;title&#34;&gt;E&lt;/span&gt;:\&amp;gt;&lt;span class=&#34;title&#34;&gt;cd&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;blog&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;title&#34;&gt;E&lt;/span&gt;:\&lt;span class=&#34;title&#34;&gt;blog&lt;/span&gt;&amp;gt;&lt;span class=&#34;title&#34;&gt;npm&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;install&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;hexo&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;cli&lt;/span&gt; -&lt;span class=&#34;title&#34;&gt;g&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tips: 通过上述代码在 E 盘创建了一个名为 blog 的文件夹，接下来我们需要做的就是初始化个人博客&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;hexo初始化&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hexo初始化&#34;&gt;#&lt;/a&gt; Hexo 初始化&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight cmd&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;#在blog文件夹下初始化博客 hexo init 博客名&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hexo init hongsheng-xu&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#进入博客所在文件夹&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;cd&lt;/span&gt; hongsheng-xu&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#安装依赖&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;npm i&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#安装插件&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;npm i hexo-deployer-git --save&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#运行博客&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hexo sever&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#上一步也可以这样写--运行博客并指定端口名&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hexo s -p &lt;span class=&#34;number&#34;&gt;8080&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight cmd&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;#列如:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;E:\&lt;span class=&#34;title&#34;&gt;blog&lt;/span&gt;&amp;gt;&lt;span class=&#34;title&#34;&gt;hexo&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;init&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;hongsheng&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;xu&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;title&#34;&gt;E&lt;/span&gt;:\&lt;span class=&#34;title&#34;&gt;blog&lt;/span&gt;&amp;gt;&lt;span class=&#34;title&#34;&gt;cd&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;hongsheng&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;xu&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;title&#34;&gt;E&lt;/span&gt;:\&lt;span class=&#34;title&#34;&gt;blog&lt;/span&gt;&amp;gt;&lt;span class=&#34;title&#34;&gt;hongsheng&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;xu&lt;/span&gt;&amp;gt;&lt;span class=&#34;title&#34;&gt;npm&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;i&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;title&#34;&gt;E&lt;/span&gt;:\&lt;span class=&#34;title&#34;&gt;blog&lt;/span&gt;&amp;gt;&lt;span class=&#34;title&#34;&gt;hongsheng&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;xu&lt;/span&gt;&amp;gt;&lt;span class=&#34;title&#34;&gt;npm&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;hexo&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;deployer&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;git&lt;/span&gt; --&lt;span class=&#34;title&#34;&gt;save&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;title&#34;&gt;E&lt;/span&gt;:\&lt;span class=&#34;title&#34;&gt;blog&lt;/span&gt;&amp;gt;&lt;span class=&#34;title&#34;&gt;hongsheng&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;xu&lt;/span&gt;&amp;gt;&lt;span class=&#34;title&#34;&gt;hexo&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;sever&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;** 输入 hexo sever 后你会看到控制台输出如下: **&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight cmd&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;#INFO  Validating config&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#INFO  &lt;span class=&#34;built_in&#34;&gt;Start&lt;/span&gt; processing&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#INFO  Hexo is running &lt;span class=&#34;built_in&#34;&gt;at&lt;/span&gt; http://localhost:&lt;span class=&#34;number&#34;&gt;4000&lt;/span&gt; . Press Ctrl+C to stop.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;完成这一步，nodejs 会建立一个本地服务器通常会向 Windows 请求相关权限&lt;/p&gt;
+&lt;p&gt;你可以复制地址 http://localhost:4000 到浏览器的地址栏，回车就能看到个人博客啦！&lt;/p&gt;
+&lt;p&gt;同时按住 ctrl+c 可以停止服务器的运行&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;搭建好的个人博客大概长这样&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://imgchr.com/i/rSBmMd&#34;&gt;&lt;img data-src=&#34;https://s3.ax1x.com/2020/12/08/rSBmMd.md.png&#34; alt=&#34;个人博客&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;hexo发布至github&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hexo发布至github&#34;&gt;#&lt;/a&gt; Hexo 发布至 github&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;修改博客子目录下_config.yml&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://imgchr.com/i/ri3Y7T&#34;&gt;&lt;img data-src=&#34;https://s3.ax1x.com/2020/12/10/ri3Y7T.png&#34; alt=&#34;修改_config.yml.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;修改为 https:// 仓库名.github.io    &lt;strong&gt;这样就可以通过仓库名.github.io 去访问个人博客&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://imgchr.com/i/ri3Dj1&#34;&gt;&lt;img data-src=&#34;https://s3.ax1x.com/2020/12/10/ri3Dj1.png&#34; alt=&#34;ri3Dj1.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;找到 deploy 加入几行代码&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://imgchr.com/i/ri8V29&#34;&gt;&lt;img data-src=&#34;https://s3.ax1x.com/2020/12/10/ri8V29.png&#34; alt=&#34;ri8V29.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight yml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Deployment&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;## Docs: https://hexo.io/docs/one-command-deployment&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;deploy:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;type:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;git&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;branch:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;master&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;repo:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;https://github.com/hongsheng-xu/hongsheng-xu.github.io.git&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Tips:  这里 type 指定为 git,branch 指定为 master, 如果你有新建分支可以提交到其他分支上，repo 里写上自己仓库的地址 &amp;gt; 打开 github &amp;gt; 进入自己的博客仓库 (博客名.gthub.io 这个仓库)&amp;gt; 点击下载 code &amp;gt; 复制地址&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://imgchr.com/i/ri8XdK&#34;&gt;&lt;img data-src=&#34;https://s3.ax1x.com/2020/12/10/ri8XdK.png&#34; alt=&#34;ri8XdK.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;在博客所在的文件夹下点击右键打开 git bash 安装 hexo-deployer-git&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ npm install hexo-deployer-git --save&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;编译代码 hexo g&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo g&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;上传代码 (提交到分支) hexo d&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo d&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;以后就可以通过 https:// 仓库名.github.io/ 去访问个人博客了&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://hongsheng-xu.github.io/2020/12/13/Hexo/README/</guid>
+            <title>零基础使用HEXO搭建个人博客</title>
+            <link>https://hongsheng-xu.github.io/2020/12/13/Hexo/README/</link>
+            <category term="HEXO搭建个人博客" scheme="https://hongsheng-xu.github.io/categories/Hexo/" />
+            <pubDate>Sun, 13 Dec 2020 12:12:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;零基础搭建个人博客&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#零基础搭建个人博客&#34;&gt;#&lt;/a&gt; 零基础搭建个人博客&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hvbmdzaGVuZy14dS9Ob3RlL2Jsb2IvbWFpbi9IZXhvLzAlRTUlOUYlQkElRTclQTElODAlRTQlQkQlQkYlRTclOTQlQThIRVhPJUU2JTkwJUFEJUU1JUJCJUJBJUU0JUI4JUFBJUU0JUJBJUJBJUU1JThEJTlBJUU1JUFFJUEyLm1k&#34;&gt;个人博客搭建&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;&#34;&gt;hexo 主题&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
  ]]></description>
         </item>
     </channel>
