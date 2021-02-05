@@ -8,7 +8,7 @@
     <author>
       <name>Hongsheng-xu</name>
     </author>
-    <updated>2021-02-04T04:20:45.000Z</updated>
+    <updated>2021-02-07T04:12:45.000Z</updated>
     <category term="web安全" />
     <category term="笔记" />
     <category term="web" />
@@ -19,6 +19,116 @@
     <category term="markdown" />
     <category term="c" />
     <category term="c++" />
+    <entry>
+        <id>https://honshen.xyz/2021/02/07/Hexo/%E7%95%AA%E5%A4%96%E7%AF%87-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85(%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F)/</id>
+        <title>番外篇-服务器环境安装(三种方式)</title>
+        <link rel="alternate" href="https://honshen.xyz/2021/02/07/Hexo/%E7%95%AA%E5%A4%96%E7%AF%87-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85(%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F)/"/>
+        <content type="html">&lt;h1 id=&#34;环境安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#环境安装&#34;&gt;#&lt;/a&gt; 环境安装&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;一般有三种安装方式: rpm (jdk) 解压缩 (tomcat) yum 在线安装 (docker)&lt;/li&gt;
+&lt;li&gt;rmp (以安装 jdk 为例)&lt;/li&gt;
+&lt;li&gt;解压缩 (以 nodejs 为例：发布网站)&lt;/li&gt;
+&lt;li&gt;yun 在线安装 (docker: 运行 docker)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;jdk安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#jdk安装&#34;&gt;#&lt;/a&gt; JDK 安装&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;检查服务器是否存在 java 环境&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;java -version&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;如果控制台输出 &lt;code&gt;-bash: java: command not found&lt;/code&gt;  表示服务器没有安装 java&lt;/p&gt;
+&lt;p&gt;如果控制台输出了 java 的版本号，我们需要卸载 java, 然后重新安装&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;rpm&lt;/span&gt; -qa&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;grep&lt;/span&gt; jdk &lt;span class=&#34;token comment&#34;&gt;#检查 jdk 的版本信息&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;rpm&lt;/span&gt; -e --nodeps jdk版本号 &lt;span class=&#34;token comment&#34;&gt;#强制移除 jdk 版本号，如:rpm -e --nodeps jdk1.8-1.8.0_281-fcs.x86_64&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下载 JDK 的 rpm 包 :  &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb3dubG9hZC5vcmFjbGUuY29tL290bi9qYXZhL2pkay84dTI4MS1iMDkvODlkNjc4ZjJiZTE2NDc4NmIyOTI1Mjc2NThjYTE2MDUvamRrLTh1MjgxLWxpbnV4LXg2NC5ycG0=&#34;&gt;https://download.oracle.com/otn/java/jdk/8u281-b09/89d678f2be164786b292527658ca1605/jdk-8u281-linux-x64.rpm&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用 xftpt 上传至 /home 目录里的用户文件夹下，我这里上传到 /home/honshen 目录下，&lt;strong&gt; 注意命令:  &lt;code&gt;rpm -ivh 文件名&lt;/code&gt; &lt;/strong&gt;:&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; /home/honshen&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;rpm&lt;/span&gt; -ivh jdk-8u281-linux-x64.rpm&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安装完成后使用命令 &lt;code&gt;java -version&lt;/code&gt;  查看版本号，如果控制台输出如下表明 java 已经安装成功&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;root@honshen honshen&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;# java -version&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;java version &lt;span class=&#34;token string&#34;&gt;&#34;1.8.0_281&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Java&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;TM&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; SE Runtime Environment &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;build &lt;span class=&#34;token number&#34;&gt;1.8&lt;/span&gt;.0_281-b09&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Java HotSpot&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;TM&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;64&lt;/span&gt;-Bit Server VM &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;build &lt;span class=&#34;token number&#34;&gt;25.281&lt;/span&gt;-b09, mixed mode&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;配置 java 的环境变量&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;vim &lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;etc&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;profile&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;然后按键盘的 i 键表示编辑文本，在文件的最后书写环境变量，书写完成后，按 esc 键然后输入 &lt;code&gt;:wq&lt;/code&gt;  表示保存并退出&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-31_18-19-20.png&#34; alt=&#34;环境变量&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;让配置文件生效&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;source&lt;/span&gt; /etc/profile&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看防火墙开启了哪些端口，然后开启端口 80, 重启防火墙，如果是阿里云一定要修改安全组&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;firewall-cmd --list-ports&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;firewall-cmd --zone&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;public --add-port&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;80&lt;/span&gt;/tcp --permanent&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;systemctl restart firewalld.service&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;解压缩安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#解压缩安装&#34;&gt;#&lt;/a&gt; 解压缩安装&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;使用命令 cd /usr/local/src 进入到用户目录下&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; /usr/local/src&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;这时我们就在 src 目录下，在这个目录下我们安装 nodejs (这是一个压缩包), 并解压，如果提示找不到 wget 命令，就先使用命令:  &lt;code&gt;yum install -y wget &lt;/code&gt; 去安装 wget&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;wget&lt;/span&gt; https://nodejs.org/dist/v10.15.3/node-v10.15.3-linux-x64.tar.xz&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;tar&lt;/span&gt; xvJf node-v10.15.3-linux-x64.tar.xz&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;我们对解压后的文件夹更名，方便我们之后建立软连接&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;mv&lt;/span&gt; node-v10.15.3-linux-x64 nodejs&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;建立软连接&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ln&lt;/span&gt; -sf /usr/local/src/nodejs/bin/node /usr/local/bin/node&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ln&lt;/span&gt; -sf /usr/local/src/nodejs/bin/npm /usr/local/bin/npm&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;配置环境变量&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;export PATH=/usr/local/nodejs/bin:&lt;span class=&#34;token environment constant&#34;&gt;$PATH&lt;/span&gt;&#39;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&gt;&gt;&lt;/span&gt; /etc/profile&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使环境变量生效&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;source&lt;/span&gt; /etc/profile&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;通过查看版本号检测 nodejs 是否安装成功&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;node -v&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;npm&lt;/span&gt; -v&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;如果 xshell 控制台上输出如下信息表面 nodejs 环境已经搭建好了，如果你使用的 nodejs 版本不一样那么控制台输出也不一样&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;root@honshen src&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;# node -v&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;v15.7.0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;root@honshen src&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;# npm -v&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;7.4&lt;/span&gt;.3&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;yum安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#yum安装&#34;&gt;#&lt;/a&gt; yum 安装&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;检测 CentOs 版本，我的版本是 CentOS7, 如果版本不一样，命令也不一样，这里上 docker 官网: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vZW5naW5lL2luc3RhbGwvY2VudG9zLw==&#34;&gt;https://docs.docker.com/engine/install/centos/&lt;/span&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;cat&lt;/span&gt; /etc/redhat-release&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;移除本地的 docker&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;yum remove docker &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;           docker-client &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;           docker-client-latest &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;           docker-common &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;           docker-latest &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;           docker-latest-logrotate &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;           docker-logrotate &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;           docker-engine&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在线安装命令 &lt;code&gt;yum -y intsall 包名&lt;/code&gt; ，-y 表示所有提示都选择确定&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;yum &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; -y yum-utils device-mapper-persistant-data lvm2&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;更新 yum 包索引&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;yum makecache fast&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安装 docker&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;yum -y &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; docker-ce docker-ce-cli containerd.io&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;启动 docker, 如果没有报错表启动成功&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;systemctl start docker&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看 docker 是否启动成功，我们执行以下命令查看 docker 进程&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ps&lt;/span&gt; -ef&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;grep&lt;/span&gt; docker&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;运行 helloword, 执行以下命令 docker 会去官网上 pull 一个 helloworld, 当你在控制台看到 &lt;code&gt;Hello from Docker!&lt;/code&gt;  已经成功了&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker run hello-world&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+        <category term="HEXO搭建个人博客" scheme="https://honshen.xyz/categories/Hexo/" />
+        <category term="Hexo" scheme="https://honshen.xyz/tags/Hexo/" />
+        <category term="博客" scheme="https://honshen.xyz/tags/%E5%8D%9A%E5%AE%A2/" />
+        <category term="服务器" scheme="https://honshen.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" />
+        <updated>2021-02-07T04:12:45.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://honshen.xyz/2021/02/06/Docker/%E7%AC%AC6%E7%AB%A0-Docker%E8%BF%9B%E9%98%B6%E4%B9%8BDockerCompose/</id>
+        <title>第6章-Docker进阶之DockerCompose</title>
+        <link rel="alternate" href="https://honshen.xyz/2021/02/06/Docker/%E7%AC%AC6%E7%AB%A0-Docker%E8%BF%9B%E9%98%B6%E4%B9%8BDockerCompose/"/>
+        <content type="html">&lt;h1 id=&#34;dockercompose&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#dockercompose&#34;&gt;#&lt;/a&gt; DockerCompose&lt;/h1&gt;
+</content>
+        <category term="Docker基础及进阶" scheme="https://honshen.xyz/categories/Docker/" />
+        <category term="笔记" scheme="https://honshen.xyz/tags/%E7%AC%94%E8%AE%B0/" />
+        <category term="服务器" scheme="https://honshen.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" />
+        <category term="docker" scheme="https://honshen.xyz/tags/docker/" />
+        <updated>2021-02-06T04:20:45.000Z</updated>
+    </entry>
     <entry>
         <id>https://honshen.xyz/2021/02/04/Docker/%E7%AC%AC4%E7%AB%A0-Docker%E7%9A%84%E9%95%9C%E5%83%8F%E5%8E%9F%E7%90%86/</id>
         <title>第4章-Docker的镜像原理</title>
@@ -63,7 +173,7 @@ docker commit -m=&amp;quot;add webapps app&amp;quot; -a=&amp;quot;honshen&amp;qu
 &lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-02-03_11-06-43.png&#34; alt=&#34;挂载&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;挂载数据卷&#34;&gt;&lt;a href=&#34;#挂载数据卷&#34; class=&#34;headerlink&#34; title=&#34;挂载数据卷&#34;&gt;&lt;/a&gt;挂载数据卷&lt;/h1&gt;&lt;h2 id=&#34;linux命令挂载&#34;&gt;&lt;a href=&#34;#linux命令挂载&#34; class=&#34;headerlink&#34; title=&#34;linux命令挂载&#34;&gt;&lt;/a&gt;linux命令挂载&lt;/h2&gt;&lt;ul&gt;
+&lt;h1 id=&#34;挂载数据卷&#34;&gt;&lt;a href=&#34;#挂载数据卷&#34; class=&#34;headerlink&#34; title=&#34;挂载数据卷&#34;&gt;&lt;/a&gt;挂载数据卷&lt;/h1&gt;&lt;h2 id=&#34;指定路径挂载&#34;&gt;&lt;a href=&#34;#指定路径挂载&#34; class=&#34;headerlink&#34; title=&#34;指定路径挂载&#34;&gt;&lt;/a&gt;指定路径挂载&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;code&gt;docker run&lt;/code&gt;的参数中加上&lt;code&gt;- v&lt;/code&gt;,如下: &lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;docker run -it -v 主机目录:容器目录 -p 主机端口:容器端口 容器id&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;例如:  &lt;code&gt;docker run -it -v /home/mysql:/usr/mysql mysql /bin/bash &lt;/code&gt;,这里将容器内/usr/mysql目录挂载到服务器的/home/mysql目录下&lt;/p&gt;
@@ -84,14 +194,31 @@ docker commit -m=&amp;quot;add webapps app&amp;quot; -a=&amp;quot;honshen&amp;qu
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;具名挂载和匿名挂载&#34;&gt;&lt;a href=&#34;#具名挂载和匿名挂载&#34; class=&#34;headerlink&#34; title=&#34;具名挂载和匿名挂载&#34;&gt;&lt;/a&gt;具名挂载和匿名挂载&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;查看卷信息&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;docker volume --help
+&lt;li&gt;&lt;h3 id=&#34;查看卷信息&#34;&gt;&lt;a href=&#34;#查看卷信息&#34; class=&#34;headerlink&#34; title=&#34;查看卷信息&#34;&gt;&lt;/a&gt;查看卷信息&lt;/h3&gt;&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;docker volume --help
 Commands:
   create      Create a volume
   inspect     Display detailed information on one or more volumes
   ls          List volumes
   prune       Remove all unused local volumes
   rm          Remove one or more volumes&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;h3 id=&#34;匿名挂载&#34;&gt;&lt;a href=&#34;#匿名挂载&#34; class=&#34;headerlink&#34; title=&#34;匿名挂载&#34;&gt;&lt;/a&gt;匿名挂载&lt;/h3&gt;&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;docker run -d -P --name 容器名 -v 路径 镜像&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;例如: &lt;code&gt;docker run -d -P --name nginx01 -v /ect/nginx nginx&lt;/code&gt;,这里-v的参数只写了容器的路径,没有写主机的路径,这种挂载的卷名称为hashcode&lt;/p&gt;
+&lt;p&gt;你可以使用&lt;code&gt;docker volume ls&lt;/code&gt;查看本地挂载的卷,通过匿名挂载的卷名称是一串很长的hashcode,这些卷挂载于服务器的&lt;code&gt;/var/lib/docker/volumes/hashcode卷名称/_data&lt;/code&gt;路径下,一般不建议使用匿名挂载&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;h3 id=&#34;具名挂载&#34;&gt;&lt;a href=&#34;#具名挂载&#34; class=&#34;headerlink&#34; title=&#34;具名挂载&#34;&gt;&lt;/a&gt;具名挂载&lt;/h3&gt;&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;docker run -d -P --name 容器名 -v 卷名称:路径 镜像&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;例如: &lt;code&gt;docker run -d -P --name nginx02 -v honshen:/ect/nginx nginx&lt;/code&gt;,这里为挂载路径命名为honshen&lt;/p&gt;
+&lt;p&gt;你可以使用&lt;code&gt;docker volume 卷名称&lt;/code&gt;查看具名挂载的具体路径,例如: &lt;code&gt;docker volume honshen&lt;/code&gt;可以查看到nginx02的挂载路径,一般docker的挂载路径为服务器的&lt;code&gt;/var/lib/docker/volumes/卷名称/_data&lt;/code&gt;路径下&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;修改卷权限&#34;&gt;&lt;a href=&#34;#修改卷权限&#34; class=&#34;headerlink&#34; title=&#34;修改卷权限&#34;&gt;&lt;/a&gt;修改卷权限&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;在挂载时&lt;code&gt;-v 路径:ro&lt;/code&gt;表示只读或&lt;code&gt;-v 路径:rw&lt;/code&gt;表示可读可写&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;docker run -d -P --name 容器名 -v 卷名称:路径:ro 镜像
+docker run -d -P --name 容器名 -v 卷名称:路径:rw 镜像
+docker run -d -P --name 容器名 -v 服务器路径:容器路径:ro 镜像
+docker run -d -P --name 容器名 -v 服务器路径:容器路径:rw 镜像&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;一旦使用ro修改为只读,容器对改卷没有操作权限,该卷只能通过宿主机(服务器去修改)&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;安装mysql&#34;&gt;&lt;a href=&#34;#安装mysql&#34; class=&#34;headerlink&#34; title=&#34;安装mysql&#34;&gt;&lt;/a&gt;安装mysql&lt;/h1&gt;&lt;ol&gt;
@@ -104,6 +231,219 @@ Commands:
 &lt;p&gt;这里,我们启动mysql服务(端口是3306)并将mysql的数据和配置文件挂载到了服务器的/home/mysql下,接下来我们可以使用sqlyog远程连接mysql&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;h1 id=&#34;Dockerfile&#34;&gt;&lt;a href=&#34;#Dockerfile&#34; class=&#34;headerlink&#34; title=&#34;Dockerfile&#34;&gt;&lt;/a&gt;Dockerfile&lt;/h1&gt;&lt;h2 id=&#34;初识Dockerfile&#34;&gt;&lt;a href=&#34;#初识Dockerfile&#34; class=&#34;headerlink&#34; title=&#34;初识Dockerfile&#34;&gt;&lt;/a&gt;初识Dockerfile&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;dockerfile是用来构建docker镜像的构建文件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;创建dockerfile,名字可以任意但文件名为建议Dockerfile&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;文件中命令大写!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;使用&lt;code&gt;docker build&lt;/code&gt;执行Dockerfile&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;docker&#34;&gt;FROM centos
+VOLUME [&amp;quot;容器挂载路径&amp;quot;,&amp;quot;容器挂载路径&amp;quot;,...]
+CMD echo &amp;quot;--end--&amp;quot;
+CMD [&amp;quot;/bin/bash&amp;quot;]&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;这种方式挂载出来是匿名挂载,你可以使用&lt;code&gt;docker inspect 容器id&lt;/code&gt;查看镜像中的Mounts字段,这个对象里记录了卷挂载的服务器路径&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;容器数据卷-1&#34;&gt;&lt;a href=&#34;#容器数据卷-1&#34; class=&#34;headerlink&#34; title=&#34;容器数据卷&#34;&gt;&lt;/a&gt;容器数据卷&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;实现多个容器间的数据共享&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;#启动一个容器
+docker run -it --name 容器名称 -v 服务器路径:容器路径 /bin/bash 容器id&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;#启动第二个容器并与第一个共享数据
+docker run -it --name 容器名称 --volumes-from 第一个容器名称 容器id&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;共享的文件是互相拷贝的,删除其中一个容器另一个容器的数据不会丢失,数据卷的声明周期持续到没有容器使用为止,且一旦使用同步到了本地那么数据卷将不会消失&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;Dockerfile构建镜像&#34;&gt;&lt;a href=&#34;#Dockerfile构建镜像&#34; class=&#34;headerlink&#34; title=&#34;Dockerfile构建镜像&#34;&gt;&lt;/a&gt;Dockerfile构建镜像&lt;/h2&gt;&lt;h3 id=&#34;基础知识&#34;&gt;&lt;a href=&#34;#基础知识&#34; class=&#34;headerlink&#34; title=&#34;基础知识&#34;&gt;&lt;/a&gt;基础知识&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;每个保留关键字(命令)都是大写,代码从上到下顺序执行执行&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;#表示注释,每一行的命令都会创建一个新的镜像层并提交&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://img2020.cnblogs.com/blog/2030366/202006/2030366-20200630103737429-2119801149.png&#34; alt=&#34;镜像层&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;命令集&#34;&gt;&lt;a href=&#34;#命令集&#34; class=&#34;headerlink&#34; title=&#34;命令集&#34;&gt;&lt;/a&gt;命令集&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;命令&lt;/th&gt;
+&lt;th&gt;作用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;FROM&lt;/td&gt;
+&lt;td&gt;基础镜像,一切从这里开始构建&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MAINTAINER&lt;/td&gt;
+&lt;td&gt;镜像的作者: 姓名+邮箱&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RUN&lt;/td&gt;
+&lt;td&gt;docker镜像构建时执行的命令&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ADD&lt;/td&gt;
+&lt;td&gt;添加内容&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WORKDIR&lt;/td&gt;
+&lt;td&gt;镜像的工作目录&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VOLUME&lt;/td&gt;
+&lt;td&gt;挂载卷&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EXPOSE&lt;/td&gt;
+&lt;td&gt;指定暴露端口&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CMD&lt;/td&gt;
+&lt;td&gt;指定容器启动时运行的命令,只有最后一个会生效,可被替代&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ENTRYPOINT&lt;/td&gt;
+&lt;td&gt;指定容器启动时运行的命令,可以追加命令&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;tips:CMD和ENTRYPOINT的区别: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CMD:build成功后执行&lt;code&gt;docker run 镜像id&lt;/code&gt;会执行CMD的命令相当于&lt;code&gt;docker run 镜像id CMD命令&lt;/code&gt;,但是如果在&lt;code&gt;docker run 镜像id 参数&lt;/code&gt;类似于&lt;code&gt;docker run 镜像id CMD命令+参数&lt;/code&gt;会报错,如果想对CMD中的命令加参数,需要覆盖掉CMD命令,直接写&lt;code&gt;docker run 镜像id 命令+参数&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;ENTRYPOINT: 执行&lt;code&gt;docker run 镜像id&lt;/code&gt;会执行ENTRYPOINT的命令相当于&lt;code&gt;docker run 镜像id ENTRYPOINT命令&lt;/code&gt;,但是如果在&lt;code&gt;docker run 镜像id 参数&lt;/code&gt;类似于&lt;code&gt;docker run 镜像id ENTRYPOINT命令+参数&lt;/code&gt;不会报错&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;命令&lt;/th&gt;
+&lt;th&gt;作用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;ONBUILD&lt;/td&gt;
+&lt;td&gt;当构建一个被继承的dockerfile,这时会运行ONBUILD指令&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;COPY&lt;/td&gt;
+&lt;td&gt;将文件拷贝到镜像中&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ENV&lt;/td&gt;
+&lt;td&gt;构建镜像设置环境变量&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;dockerhub中很多镜像来源于一个基础镜像&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;dockerfile&#34;&gt;FROM scratch&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://upload-images.jianshu.io/upload_images/6870990-744e06b25e051ac7.png?imageMogr2/auto-orient/strip%7CimageView2/2/format/webp&#34; alt=&#34;dockerfile&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;制作centos&#34;&gt;&lt;a href=&#34;#制作centos&#34; class=&#34;headerlink&#34; title=&#34;制作centos&#34;&gt;&lt;/a&gt;制作centos&lt;/h3&gt;&lt;pre&gt;&lt;code class=&#34;dockerfile&#34;&gt;FROM centos
+MAINTAINER honshen&amp;lt;1394948572@qq.com&amp;gt;
+
+ENV MYPATH /usr/local
+WORKDIR $MYPATH
+
+RUN yum -y install vim
+RUN yum -y install net-tools
+
+EXPOSE 80
+CMD echo $MYPATH
+CMD echo &amp;quot;--end--&amp;quot;
+CMD /bin/bash&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;运行dockerfile&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;docker build -f 文件路径 -t 镜像名称:版本号 .&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;注意命令最后有个英文字符点&lt;code&gt;.&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;查看镜像构建历史&#34;&gt;&lt;a href=&#34;#查看镜像构建历史&#34; class=&#34;headerlink&#34; title=&#34;查看镜像构建历史&#34;&gt;&lt;/a&gt;查看镜像构建历史&lt;/h3&gt;&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;docker history 镜像id&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;发布镜像&#34;&gt;&lt;a href=&#34;#发布镜像&#34; class=&#34;headerlink&#34; title=&#34;发布镜像&#34;&gt;&lt;/a&gt;发布镜像&lt;/h1&gt;&lt;h2 id=&#34;发布到dockerhub&#34;&gt;&lt;a href=&#34;#发布到dockerhub&#34; class=&#34;headerlink&#34; title=&#34;发布到dockerhub&#34;&gt;&lt;/a&gt;发布到dockerhub&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;dockerhub官网地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9odWIuZG9ja2VyLmNvbS8=&#34;&gt;https://hub.docker.com/&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;dockerhub注册地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yZWdpc3RyeS5odWIuZG9ja2VyLmNvbS8=&#34;&gt;https://registry.hub.docker.com/&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;登录到命令行登录dockerhub&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;docker login -u 用户名 -p 密码&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;发布到dockerhub&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;docker push 作者/镜像名:版本号&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;例如: &lt;code&gt;docker push honshen/myCentos:1.0&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;发布到阿里云镜像&#34;&gt;&lt;a href=&#34;#发布到阿里云镜像&#34; class=&#34;headerlink&#34; title=&#34;发布到阿里云镜像&#34;&gt;&lt;/a&gt;发布到阿里云镜像&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;登录阿里云控制台找到容器镜像服务其中有镜像仓库&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-02-04_20-39-39.png&#34; alt=&#34;找到镜像仓库&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;镜像仓库下面是命名空间,首先我们创建一个命名空间–创建命名空间的按钮在网页的右上角&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-02-04_20-45-47.png&#34; alt=&#34;创建命名空间&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;接着打开镜像仓库我们点击创建镜像仓库&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-02-04_20-47-34.png&#34; alt=&#34;创建镜像仓库&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-02-04_20-47-56.png&#34; alt=&#34;仓库选择本地&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;使用阿里云镜像: 我们创建完仓库后点击仓库,这里有阿里云的官方操作,我们只需要复制代码即可&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-02-04_20-51-12.png&#34; alt=&#34;使用阿里云镜像&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;docker全流程&#34;&gt;&lt;a href=&#34;#docker全流程&#34; class=&#34;headerlink&#34; title=&#34;docker全流程&#34;&gt;&lt;/a&gt;docker全流程&lt;/h2&gt;&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-02-05_11-06-40.jpg&#34; alt=&#34;全流程&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;docker网络&#34;&gt;&lt;a href=&#34;#docker网络&#34; class=&#34;headerlink&#34; title=&#34;docker网络&#34;&gt;&lt;/a&gt;docker网络&lt;/h1&gt;&lt;h2 id=&#34;理解docker0&#34;&gt;&lt;a href=&#34;#理解docker0&#34; class=&#34;headerlink&#34; title=&#34;理解docker0&#34;&gt;&lt;/a&gt;理解docker0&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;获取ip&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;ip addr&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-02-05_12-34-16.png&#34; alt=&#34;地址&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;原理&#34;&gt;&lt;a href=&#34;#原理&#34; class=&#34;headerlink&#34; title=&#34;原理&#34;&gt;&lt;/a&gt;原理&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;安装docker后,docker会有一个网卡docker0(桥接模式),使用evth-pair技术&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;每启动一个docker容器,docker会给容器分配一个同网段的ip&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;容器的网卡都是一对一对的&lt;br&gt;evth-pair是一对虚拟设备的接口,成对出现,一端连接协议,一端彼此相连,相当于桥梁连接各种虚拟设备&lt;/p&gt;
+&lt;p&gt;因此容器和容器之间可以互相ping通&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-02-05_12-52-02.png&#34; alt=&#34;原理图&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;从图可知tomcat01和tomcat02通过docker0转发请求,docker0充当路由,在容器不指定网络的情况下是由docker0路由,docker0会给每个容器分配一个可用的ip保证其可以互相通信&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;–link&#34;&gt;&lt;a href=&#34;#–link&#34; class=&#34;headerlink&#34; title=&#34;–link&#34;&gt;&lt;/a&gt;–link&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;启动时命令&lt;code&gt;--link 容器名&lt;/code&gt;与另一个容器互联&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;docker run -d -P --name 容器名 --link 容器名 镜像名&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;例如: &lt;code&gt;docker run -d -P --name tomcat02 --link tomcat01 tomcat&lt;/code&gt;这样将tomcat02和tomcat01联接,你可以尝试ping tomcat01 &lt;code&gt;docker exec -it tomcat02 ping tomcat01&lt;/code&gt;你可以看到来自tomcat01的数据包,但是如果tomcat01启动时没有连接tomcat02则不能反向ping tomcat01的数据&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;查看配置&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;docker exec -it 容器名 cat /etc/hosts&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;例如: &lt;code&gt;docker exec -it tomcat02 cat /etc/host&lt;/code&gt;,你可以清楚的在此处看到tomcat02的hosts文件中直接将tomcat01的容器名映射到了内网地址下,但是如果你查看tomcat01的hosts文件你会发现这里没有对tomcat02的相关映射&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;不建议使用–link&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;自定义网络&#34;&gt;&lt;a href=&#34;#自定义网络&#34; class=&#34;headerlink&#34; title=&#34;自定义网络&#34;&gt;&lt;/a&gt;自定义网络&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;docker0不支持容器名访问&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;网络模式&#34;&gt;&lt;a href=&#34;#网络模式&#34; class=&#34;headerlink&#34; title=&#34;网络模式&#34;&gt;&lt;/a&gt;网络模式&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;bridge: 桥接 (docker默认,自定义网络)&lt;/li&gt;
+&lt;li&gt;none: 不配置网络&lt;/li&gt;
+&lt;li&gt;host: 和宿主机共享网络&lt;/li&gt;
+&lt;li&gt;container: 和容器网络互联(局限很大)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;容器互联&#34;&gt;&lt;a href=&#34;#容器互联&#34; class=&#34;headerlink&#34; title=&#34;容器互联&#34;&gt;&lt;/a&gt;容器互联&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;查看docker网络配置&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;docker network ls #查看网络
+docker network rm [NAME] #移除网络&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;自定义网络&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;docker network create --driver bridge --subnet 子网ip --gateway 网关 网络名
+docker -d -P --name 容器名 --net 网络名 镜像名 #默认使用docker0也是就--net bridge&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;例如: &lt;code&gt;docker network create --driver bridge --subnet 192.168.0.0/16 --gateway 192.169.0.1 mynet&lt;/code&gt;,接着你可要使用命令&lt;code&gt;docker network ls&lt;/code&gt;查看新建的网络,这里子网最大支持192.168.0.2~192.168.255.255,你也可以使用&lt;code&gt;docker network inspect 网络名&lt;/code&gt;去查看某个网络名详细的网络配置&lt;/p&gt;
+&lt;p&gt;这样自定义网络可以用于容器互联,这时即便没有使用–link也可以直接&lt;code&gt;docker exec -it tomcat02 ping tomcat01&lt;/code&gt;或者&lt;code&gt;docker exec -it tomcat01 ping tomcat02&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;网络连通&#34;&gt;&lt;a href=&#34;#网络连通&#34; class=&#34;headerlink&#34; title=&#34;网络连通&#34;&gt;&lt;/a&gt;网络连通&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;当两个容器处于不同的网段时,直接&lt;code&gt;ping 容器名&lt;/code&gt;会报错&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;尝试使一个容器直接连接到网络&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;docker network connect 网络名 容器名&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;例如: &lt;code&gt;docker network connect tomcat03 mynet&lt;/code&gt;如果tomcat03的网段与我们之前自定义的网段192.168不同我们通过这种方式使tomcat03能够访问到tomcat01和tomcat02,这时我们可以查看网络的连接配置&lt;code&gt;docker network inspect mynet&lt;/code&gt;,这时可以看到docker直接将tomcat03加入到了tomcat01和tomcat02所在的网络也就是一个容器两个ip,tomcat03拥有了两个不同网段的ip地址&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 </content>
         <category term="Docker基础及进阶" scheme="https://honshen.xyz/categories/Docker/" />
         <category term="笔记" scheme="https://honshen.xyz/tags/%E7%AC%94%E8%AE%B0/" />
@@ -392,65 +732,36 @@ cd /etc/nginx&lt;/code&gt;&lt;/pre&gt;
         <id>https://honshen.xyz/2021/02/01/Hexo/%E7%AC%AC4%E7%AB%A0-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%92%8C%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/</id>
         <title>第4章-服务器环境搭建和博客部署</title>
         <link rel="alternate" href="https://honshen.xyz/2021/02/01/Hexo/%E7%AC%AC4%E7%AB%A0-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%92%8C%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/"/>
-        <content type="html">&lt;h1 id=&#34;第4章-服务器环境搭建和博客部署&#34;&gt;&lt;a href=&#34;#第4章-服务器环境搭建和博客部署&#34; class=&#34;headerlink&#34; title=&#34;第4章-服务器环境搭建和博客部署&#34;&gt;&lt;/a&gt;第4章-服务器环境搭建和博客部署&lt;/h1&gt;&lt;h1 id=&#34;连接远程服务器&#34;&gt;&lt;a href=&#34;#连接远程服务器&#34; class=&#34;headerlink&#34; title=&#34;连接远程服务器&#34;&gt;&lt;/a&gt;连接远程服务器&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;我们通过XShell连接到远程服务器,&lt;strong&gt;需要以root用户登录&lt;/strong&gt;,登录成功后控制台输出如下:我们需要切换到/usr/local/src目录下去部署nodejs&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;WARNING! The remote SSH server rejected X11 forwarding request.
-Last login: Fri Jan 29 19:45:56 2021 from 
-Welcome to Alibaba Cloud Elastic Compute Service !
-[root@honshen ~]# &lt;/code&gt;&lt;/pre&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&#34;nodejs部署&#34;&gt;&lt;a href=&#34;#nodejs部署&#34; class=&#34;headerlink&#34; title=&#34;nodejs部署&#34;&gt;&lt;/a&gt;nodejs部署&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;使用命令cd /usr/local/src进入到用户目录下&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;cd /usr/local/src&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;这时我们就在src目录下,在这个目录下我们安装nodejs(这是一个压缩包),并解压,如果提示找不到wget命令,就先使用命令: &lt;code&gt;yum install -y wget &lt;/code&gt;去安装wget&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;wget https://nodejs.org/dist/v10.15.3/node-v10.15.3-linux-x64.tar.xz
-tar xvJf node-v10.15.3-linux-x64.tar.xz&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;我们对解压后的文件夹更名,方便我们之后建立软连接&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;mv node-v10.15.3-linux-x64 nodejs&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;建立软连接&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;ln -sf /usr/local/src/nodejs/bin/node /usr/local/bin/node
-ln -sf /usr/local/src/nodejs/bin/npm /usr/local/bin/npm&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;配置环境变量&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;echo &amp;#39;export PATH=/usr/local/nodejs/bin:$PATH&amp;#39; &amp;gt;&amp;gt; /etc/profile&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;使环境变量生效&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;source /etc/profile&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;通过查看版本号检测nodejs是否安装成功&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;node -v
-npm -v&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;如果xshell控制台上输出如下信息表面nodejs环境已经搭建好了,如果你使用的nodejs版本不一样那么控制台输出也不一样&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;[root@honshen src]# node -v
-v15.7.0
-[root@honshen src]# npm -v
-7.4.3&lt;/code&gt;&lt;/pre&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&#34;部署博客&#34;&gt;&lt;a href=&#34;#部署博客&#34; class=&#34;headerlink&#34; title=&#34;部署博客&#34;&gt;&lt;/a&gt;部署博客&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;我们利用xftp将之前搭建的个人博客上传到服务器的/home目录下,在此之前,我们先将博客文件复制到桌面,然后进入博客文件夹删除里面的&lt;code&gt;node_modules&lt;/code&gt;文件夹,这个里面存放的都是一些依赖且文件体积较大,直接上传会浪费不少时间,删除完成后我们将博客文件夹上传到服务器&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-30_17-12-32.png&#34; alt=&#34;上传文件夹&#34;&gt;&lt;/p&gt;
-&lt;p&gt;接下来我们使用XShell进入到这个博客文件夹,并将之前删除的依赖重新安装,这里我们使用淘宝的镜像下载依赖怎样会快很多~&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;cd /home/hongsheng-xu
-npm config set registry https://registry.npm.taobao.org
-npm i&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;在服务器上安装nohup和hexo&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;yum install coreutils&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;编辑配置,如图在环境变量后加上usr/bin:,编辑完后按esc键,然后输入: &lt;code&gt;:wq&lt;/code&gt;,这样就修改完成&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;vi ~/.bash_profile &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://img2020.cnblogs.com/blog/48590/202012/48590-20201202103325742-624137850.png&#34; alt=&#34;配置&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://img2020.cnblogs.com/blog/48590/202012/48590-20201202103443661-959241681.png&#34; alt=&#34;配置&#34;&gt;&lt;/p&gt;
-&lt;p&gt;使配置生效,并检查nohup的版本号验证是否安装成功,同理如果控制台输出了nohup的版本号表明安装成功&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt; source ~/.bash_profile
- nohup --version&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;接下来我们安装hexo并且启动服务&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;npm install hexo-cli -g
-nohup hexo s -p 80 &amp;amp;
-exit&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;看到控制台输出如下表明成功:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;[root@honshen hongsheng-xu]# nohup: ignoring input and appending output to ‘nohup.out’
-exit
-logout
-There are stopped jobs.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;这里你可以通过http://服务器公网ip/或者通过域名去查看部署的代码,举个栗子:&lt;/p&gt;
-&lt;p&gt;我部署的博客空间: &lt;a href=&#34;http://honshen.xyz/&#34;&gt;http://honshen.xyz&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;也可以通过公网ip访问: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzguMTMxLjYyLjQ4Lw==&#34;&gt;http://8.131.62.48/&lt;/span&gt;&lt;/p&gt;
+        <content type="html">&lt;h1 id=&#34;第4章-服务器环境搭建和博客部署&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第4章-服务器环境搭建和博客部署&#34;&gt;#&lt;/a&gt; 第 4 章 - 服务器环境搭建和博客部署&lt;/h1&gt;
+&lt;h1 id=&#34;连接远程服务器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#连接远程服务器&#34;&gt;#&lt;/a&gt; 连接远程服务器&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我们通过 XShell 连接到远程服务器，&lt;strong&gt; 需要以 root 用户登录&lt;/strong&gt;，登录成功后控制台输出如下：我们需要切换到 /usr/local/src 目录下去部署 nodejs&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;WARNING&lt;span class=&#34;token operator&#34;&gt;!&lt;/span&gt; The remote SSH server rejected X11 forwarding request.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Last login: Fri Jan &lt;span class=&#34;token number&#34;&gt;29&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;19&lt;/span&gt;:45:56 &lt;span class=&#34;token number&#34;&gt;2021&lt;/span&gt; from &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Welcome to Alibaba Cloud Elastic Compute Service &lt;span class=&#34;token operator&#34;&gt;!&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;root@honshen ~&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;#&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/blockquote&gt;
+&lt;h1 id=&#34;nodejs部署&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#nodejs部署&#34;&gt;#&lt;/a&gt; nodejs 部署&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;使用命令 cd /usr/local/src 进入到用户目录下&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; /usr/local/src&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;这时我们就在 src 目录下，在这个目录下我们安装 nodejs (这是一个压缩包), 并解压，如果提示找不到 wget 命令，就先使用命令:  &lt;code&gt;yum install -y wget &lt;/code&gt; 去安装 wget&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;wget&lt;/span&gt; https://nodejs.org/dist/v10.15.3/node-v10.15.3-linux-x64.tar.xz&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;tar&lt;/span&gt; xvJf node-v10.15.3-linux-x64.tar.xz&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;我们对解压后的文件夹更名，方便我们之后建立软连接&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;mv&lt;/span&gt; node-v10.15.3-linux-x64 nodejs&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;建立软连接&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ln&lt;/span&gt; -sf /usr/local/src/nodejs/bin/node /usr/local/bin/node&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ln&lt;/span&gt; -sf /usr/local/src/nodejs/bin/npm /usr/local/bin/npm&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;配置环境变量&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;export PATH=/usr/local/nodejs/bin:&lt;span class=&#34;token environment constant&#34;&gt;$PATH&lt;/span&gt;&#39;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&gt;&gt;&lt;/span&gt; /etc/profile&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;使环境变量生效&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;source&lt;/span&gt; /etc/profile&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;通过查看版本号检测 nodejs 是否安装成功&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;node -v&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;npm&lt;/span&gt; -v&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;如果 xshell 控制台上输出如下信息表面 nodejs 环境已经搭建好了，如果你使用的 nodejs 版本不一样那么控制台输出也不一样&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;root@honshen src&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;# node -v&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;v15.7.0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;root@honshen src&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;# npm -v&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;7.4&lt;/span&gt;.3&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/blockquote&gt;
+&lt;h1 id=&#34;部署博客&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#部署博客&#34;&gt;#&lt;/a&gt; 部署博客&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我们利用 xftp 将之前搭建的个人博客上传到服务器的 /home 目录下，在此之前，我们先将博客文件复制到桌面，然后进入博客文件夹删除里面的 &lt;code&gt;node_modules&lt;/code&gt;  文件夹，这个里面存放的都是一些依赖且文件体积较大，直接上传会浪费不少时间，删除完成后我们将博客文件夹上传到服务器&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-30_17-12-32.png&#34; alt=&#34;上传文件夹&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;接下来我们使用 XShell 进入到这个博客文件夹，并将之前删除的依赖重新安装，这里我们使用淘宝的镜像下载依赖怎样会快很多～&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; /home/hongsheng-xu&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;npm&lt;/span&gt; config &lt;span class=&#34;token builtin class-name&#34;&gt;set&lt;/span&gt; registry https://registry.npm.taobao.org&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;npm&lt;/span&gt; i&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;在服务器上安装 nohup 和 hexo&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;yum &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; coreutils&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;编辑配置，如图在环境变量后加上 usr/bin:, 编辑完后按 esc 键，然后输入:  &lt;code&gt;:wq&lt;/code&gt; , 这样就修改完成&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;vi&lt;/span&gt; ~/.bash_profile&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-02-05_21-44-19.png&#34; alt=&#34;配置&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;使配置生效，并检查 nohup 的版本号验证是否安装成功，同理如果控制台输出了 nohup 的版本号表明安装成功&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;source&lt;/span&gt; ~/.bash_profile&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;nohup&lt;/span&gt; --version&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;接下来我们安装 hexo 并且启动服务&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;npm&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; hexo-cli -g&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;nohup&lt;/span&gt; hexo s -p &lt;span class=&#34;token number&#34;&gt;80&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;exit&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;看到控制台输出如下表明成功:&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;root@honshen hongsheng-xu&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;# nohup: ignoring input and appending output to ‘nohup.out’&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;exit&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;logout&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;There are stopped jobs.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;这里你可以通过 http:// 服务器公网 ip / 或者通过域名去查看部署的代码，举个栗子:&lt;/p&gt;
+&lt;p&gt;我部署的博客空间: &lt;a href=&#34;http://honshen.xyz&#34;&gt;http://honshen.xyz&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;也可以通过公网 ip 访问: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzguMTMxLjYyLjQ4Lw==&#34;&gt;http://8.131.62.48/&lt;/span&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 </content>
         <category term="HEXO搭建个人博客" scheme="https://honshen.xyz/categories/Hexo/" />
@@ -604,64 +915,62 @@ There are stopped jobs.&lt;/code&gt;&lt;/pre&gt;
         <id>https://honshen.xyz/2021/01/31/Hexo/%E7%AC%AC3%E7%AB%A0-Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8(%E5%9F%BA%E4%BA%8ECentOS7)/</id>
         <title>第3章-Linux服务器的使用(基于CentOS7)</title>
         <link rel="alternate" href="https://honshen.xyz/2021/01/31/Hexo/%E7%AC%AC3%E7%AB%A0-Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8(%E5%9F%BA%E4%BA%8ECentOS7)/"/>
-        <content type="html">&lt;h1 id=&#34;Linux服务器的使用-基于centOS7-–配合阿里云&#34;&gt;&lt;a href=&#34;#Linux服务器的使用-基于centOS7-–配合阿里云&#34; class=&#34;headerlink&#34; title=&#34;Linux服务器的使用(基于centOS7)–配合阿里云&#34;&gt;&lt;/a&gt;Linux服务器的使用(基于centOS7)–配合阿里云&lt;/h1&gt;&lt;h1 id=&#34;XShell和Xftp的下载&#34;&gt;&lt;a href=&#34;#XShell和Xftp的下载&#34; class=&#34;headerlink&#34; title=&#34;XShell和Xftp的下载&#34;&gt;&lt;/a&gt;XShell和Xftp的下载&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;XShell官网下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly94c2hlbGwuZW4uc29mdG9uaWMuY29tLw==&#34;&gt;https://xshell.en.softonic.com/&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;Xftp官网下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubmV0c2FyYW5nLmNvbS96aC94ZnRwLw==&#34;&gt;https://www.netsarang.com/zh/xftp/&lt;/span&gt;&lt;/li&gt;
+        <content type="html">&lt;h1 id=&#34;linux服务器的使用基于centos7-配合阿里云&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#linux服务器的使用基于centos7-配合阿里云&#34;&gt;#&lt;/a&gt; Linux 服务器的使用 (基于 centOS7)-- 配合阿里云&lt;/h1&gt;
+&lt;h1 id=&#34;xshell和xftp的下载&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#xshell和xftp的下载&#34;&gt;#&lt;/a&gt; XShell 和 Xftp 的下载&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;XShell 官网下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly94c2hlbGwuZW4uc29mdG9uaWMuY29tLw==&#34;&gt;https://xshell.en.softonic.com/&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Xftp 官网下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubmV0c2FyYW5nLmNvbS96aC94ZnRwLw==&#34;&gt;https://www.netsarang.com/zh/xftp/&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;XShell登录&#34;&gt;&lt;a href=&#34;#XShell登录&#34; class=&#34;headerlink&#34; title=&#34;XShell登录&#34;&gt;&lt;/a&gt;XShell登录&lt;/h1&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;新建远程连接,点击右上角新建按钮&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-28_17-29-30.png&#34; alt=&#34;新建远程连接&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;xshell登录&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#xshell登录&#34;&gt;#&lt;/a&gt; XShell 登录&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;新建远程连接，点击右上角新建按钮&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-28_17-29-30.png&#34; alt=&#34;新建远程连接&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;在弹出的新建窗口中,输入自已服务器的名称(可以是任意名称),然后选择协议,一般云服务器的协议是SSH,公网IP可以去阿里云找到服务器的实例查看这里以阿里云轻量服务器为例,填入服务器ip后可以点击连接,如果你没有服务器,可以在阿里云或者腾讯云,百度云选购一台,一般来说学生服务器大概在100~200yuan一年:&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-28_17-51-25.png&#34; alt=&#34;寻找公网ip&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-28_17-34-56.png&#34; alt=&#34;新建会话&#34;&gt;&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;在弹出的新建窗口中，输入自已服务器的名称 (可以是任意名称), 然后选择协议，一般云服务器的协议是 SSH, 公网 IP 可以去阿里云找到服务器的实例查看这里以阿里云轻量服务器为例，填入服务器 ip 后可以点击连接，如果你没有服务器，可以在阿里云或者腾讯云，百度云选购一台，一般来说学生服务器大概在 100~200yuan 一年:&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-28_17-51-25.png&#34; alt=&#34;寻找公网ip&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-28_17-34-56.png&#34; alt=&#34;新建会话&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;连接服务器,先修改服务器密码&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-28_17-58-56.png&#34; alt=&#34;修改密码&#34;&gt;&lt;/p&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;回到XShell链接服务器,选择接受来自服务器的ssh秘钥&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;连接服务器，先修改服务器密码&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-28_17-58-56.png&#34; alt=&#34;修改密码&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;回到 XShell 链接服务器，选择接受来自服务器的 ssh 秘钥&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-28_17-56-25.png&#34; alt=&#34;登录名为root&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-28_17-57-57.png&#34; alt=&#34;输入密码&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;XShell 控制台输出如下表明连接成功&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Welcome to Alibaba Cloud Elastic Compute Service &lt;span class=&#34;token operator&#34;&gt;!&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;root@iz2zeg6qs3stnlr0awniwwz ~&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;#&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-28_17-56-25.png&#34; alt=&#34;登录名为root&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-28_17-57-57.png&#34; alt=&#34;输入密码&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;xftp使用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#xftp使用&#34;&gt;#&lt;/a&gt; xftp 使用&lt;/h1&gt;
 &lt;ul&gt;
-&lt;li&gt;XShell控制台输出如下表明连接成功&lt;/li&gt;
+&lt;li&gt;点击 xshell 上方的图标进入 xftp, 或者直接进入 xftp, 打开后如下&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;Welcome to Alibaba Cloud Elastic Compute Service !
-[root@iz2zeg6qs3stnlr0awniwwz ~]# &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-28_18-09-40.png&#34; alt=&#34;打开zftp&#34; /&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-28_18-14-43.png&#34; alt=&#34;打开xftp&#34; /&gt;&lt;/p&gt;
+&lt;h1 id=&#34;服务器文件信息&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#服务器文件信息&#34;&gt;#&lt;/a&gt; 服务器文件信息&lt;/h1&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-29_12-48-03.png&#34; alt=&#34;服务器文件&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-29_13-00-34.png&#34; alt=&#34;绪&#34; /&gt;&lt;/p&gt;
+&lt;h1 id=&#34;xshell命令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#xshell命令&#34;&gt;#&lt;/a&gt; XShell 命令&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;linux 中没有错误就代表操作成功&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;清屏&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#清屏&#34;&gt;#&lt;/a&gt; 清屏&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shelll&#34;&gt;clear
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;xftp使用&#34;&gt;&lt;a href=&#34;#xftp使用&#34; class=&#34;headerlink&#34; title=&#34;xftp使用&#34;&gt;&lt;/a&gt;xftp使用&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;点击xshell上方的图标进入xftp,或者直接进入xftp,打开后如下&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-28_18-09-40.png&#34; alt=&#34;打开zftp&#34;&gt;&lt;br&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-28_18-14-43.png&#34; alt=&#34;打开xftp&#34;&gt;&lt;/p&gt;
-&lt;h1 id=&#34;服务器文件信息&#34;&gt;&lt;a href=&#34;#服务器文件信息&#34; class=&#34;headerlink&#34; title=&#34;服务器文件信息&#34;&gt;&lt;/a&gt;服务器文件信息&lt;/h1&gt;&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-29_12-48-03.png&#34; alt=&#34;服务器文件&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-29_13-00-34.png&#34; alt=&#34;绪&#34;&gt;&lt;/p&gt;
-&lt;h1 id=&#34;XShell命令&#34;&gt;&lt;a href=&#34;#XShell命令&#34; class=&#34;headerlink&#34; title=&#34;XShell命令&#34;&gt;&lt;/a&gt;XShell命令&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;linux中没有错误就代表操作成功&lt;/strong&gt; &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;h2 id=&#34;清屏&#34;&gt;&lt;a href=&#34;#清屏&#34; class=&#34;headerlink&#34; title=&#34;清屏&#34;&gt;&lt;/a&gt;清屏&lt;/h2&gt;&lt;pre&gt;&lt;code class=&#34;shelll&#34;&gt;clear&lt;/code&gt;&lt;/pre&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;关机&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关机&#34;&gt;#&lt;/a&gt; 关机&lt;/h2&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;h2 id=&#34;关机&#34;&gt;&lt;a href=&#34;#关机&#34; class=&#34;headerlink&#34; title=&#34;关机&#34;&gt;&lt;/a&gt;关机&lt;/h2&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;sync # 将数据由内存同步到硬盘中。
-shutdown #关机指令，你可以man shutdown来看一下帮助文档。例如你可以运行如下命令关机:
-shutdown -h 10 #这个命令告诉大家，计算机将在10分钟后关机
-shutdown -h now #立马关机
-shutdown -h 20:25 #系统会在今天20:25关机
-shutdown -h +10 # 十分钟后关机
-shutdown -r now #系统立马重启
-shutdown -r +10 # 系统十分钟后重启
-reboot #就是重启，等同于shutdown -r now
-halt #关闭系统，等同于shutdown -h now和 poweroff&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;h2 id=&#34;文件列表查看&#34;&gt;&lt;a href=&#34;#文件列表查看&#34; class=&#34;headerlink&#34; title=&#34;文件列表查看&#34;&gt;&lt;/a&gt;文件列表查看&lt;/h2&gt;&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;ls #查看当前目录下的文件
-# -a 参数表示查看全部的文件,包含隐藏文件
-# -l参数列出全部的文件包含文件属性和权限,没有隐藏文件
-#Linux命令可以组合使用
-ls / #查看根目录下的文件
-ls -ll #列表查看当前目录下的文件
-ls -al #列表查看全部文件(含隐藏文件)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;文件属性,通过ls -al列出文件的属性&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-29_15-48-46.png&#34; alt=&#34;文件权限&#34;&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sync&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;# 将数据由内存同步到硬盘中。&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;shutdown&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#关机指令，你可以 man shutdown 来看一下帮助文档。例如你可以运行如下命令关机:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;shutdown&lt;/span&gt; -h &lt;span class=&#34;token number&#34;&gt;10&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#这个命令告诉大家，计算机将在 10 分钟后关机&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;shutdown&lt;/span&gt; -h now &lt;span class=&#34;token comment&#34;&gt;#立马关机&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;shutdown&lt;/span&gt; -h &lt;span class=&#34;token number&#34;&gt;20&lt;/span&gt;:25 &lt;span class=&#34;token comment&#34;&gt;#系统会在今天 20:25 关机&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;shutdown&lt;/span&gt; -h +10 &lt;span class=&#34;token comment&#34;&gt;# 十分钟后关机&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;shutdown&lt;/span&gt; -r now &lt;span class=&#34;token comment&#34;&gt;#系统立马重启&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;shutdown&lt;/span&gt; -r +10 &lt;span class=&#34;token comment&#34;&gt;# 系统十分钟后重启&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;reboot&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#就是重启，等同于 shutdown -r now&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;halt&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#关闭系统，等同于 shutdown -h now 和 poweroff&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;文件列表查看&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#文件列表查看&#34;&gt;#&lt;/a&gt; 文件列表查看&lt;/h2&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ls&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#查看当前目录下的文件&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# -a 参数表示查看全部的文件，包含隐藏文件&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# -l 参数列出全部的文件包含文件属性和权限，没有隐藏文件&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#Linux 命令可以组合使用&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ls&lt;/span&gt; / &lt;span class=&#34;token comment&#34;&gt;#查看根目录下的文件&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ls&lt;/span&gt; -ll &lt;span class=&#34;token comment&#34;&gt;#列表查看当前目录下的文件&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ls&lt;/span&gt; -al &lt;span class=&#34;token comment&#34;&gt;#列表查看全部文件 (含隐藏文件)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;文件属性，通过 ls -al 列出文件的属性&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-29_15-48-46.png&#34; alt=&#34;文件权限&#34; /&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -671,11 +980,12 @@ ls -al #列表查看全部文件(含隐藏文件)&lt;/code&gt;&lt;/pre&gt;
 &lt;th&gt;其他用户权限&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
-&lt;tbody&gt;&lt;tr&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
 &lt;td&gt;d: 目录文件&lt;/td&gt;
-&lt;td&gt;r(读) w(写) x(执行)&lt;/td&gt;
-&lt;td&gt;r(读) w(写) x(执行)&lt;/td&gt;
-&lt;td&gt;r(读) w(写) x(执行)&lt;/td&gt;
+&lt;td&gt;r (读) w (写) x (执行)&lt;/td&gt;
+&lt;td&gt;r (读) w (写) x (执行)&lt;/td&gt;
+&lt;td&gt;r (读) w (写) x (执行)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;l: 链接文件&lt;/td&gt;
@@ -685,209 +995,100 @@ ls -al #列表查看全部文件(含隐藏文件)&lt;/code&gt;&lt;/pre&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;-: 文件&lt;/td&gt;
-&lt;td&gt;—(不可读写执行)&lt;/td&gt;
+&lt;td&gt;---(不可读写执行)&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;b: 随机存储设备&lt;/td&gt;
-&lt;td&gt;r-x(可读执行)&lt;/td&gt;
+&lt;td&gt;r-x (可读执行)&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;c:一次性读取装置&lt;/td&gt;
+&lt;td&gt;c: 一次性读取装置&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;修改文件属性&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#修改文件属性&#34;&gt;#&lt;/a&gt; 修改文件属性&lt;/h2&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;chgrp&lt;/span&gt; -R 属组名 文件名/文件夹名 &lt;span class=&#34;token comment&#34;&gt;# chgrp -R root www 将 www 属组改为 root&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;chown&lt;/span&gt; -R 属主名 文件名/文件夹名 &lt;span class=&#34;token comment&#34;&gt;# chown -R root www 将 www 属主改为 root&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;chmod&lt;/span&gt; -R xyz 文件/文件名&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;r:4 w:2 x:1 -:0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;属主: &lt;span class=&#34;token assign-left variable&#34;&gt;rwx&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;4&lt;/span&gt;+2+1&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;7&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;属组: &lt;span class=&#34;token assign-left variable&#34;&gt;rwx&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;7&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;其他用户 ---&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;chmod&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;777&lt;/span&gt; 文件名 &lt;span class=&#34;token comment&#34;&gt;#将一个文件属性修改为可读可写可执行，对所有用户有效赋予最高权限&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;文件内容查看&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#文件内容查看&#34;&gt;#&lt;/a&gt; 文件内容查看&lt;/h2&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;cat&lt;/span&gt; 文件名 &lt;span class=&#34;token comment&#34;&gt;#从第一行开始显示&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;tac&lt;/span&gt; 文件名 &lt;span class=&#34;token comment&#34;&gt;#从最后一行倒着显示&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;nl&lt;/span&gt; 文件名 &lt;span class=&#34;token comment&#34;&gt;#显示时输出行号&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;more&lt;/span&gt; 文件名 &lt;span class=&#34;token comment&#34;&gt;#一页一页的显示，空格键翻页，enter 向下翻一行，q 键退出&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;less&lt;/span&gt; 文件名 &lt;span class=&#34;token comment&#34;&gt;#比 more 更好，能往前翻页，键盘的上下键代表翻页，enter 翻一行，到文件结束按下 q 键退出，输入字符 / 字符串查找 / 后的字符串在文件中的所有位置 (向下查询), 使用？字符串向下查找，例: /set (查找此页及后的所有 set) ?set (查找此页及前的 set 字符) n 表示查找下一个，N 表示查找上一个&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;head&lt;/span&gt; -n &lt;span class=&#34;token number&#34;&gt;20&lt;/span&gt; 文件名 &lt;span class=&#34;token comment&#34;&gt;#只看头 20 行&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;tail&lt;/span&gt; -n &lt;span class=&#34;token number&#34;&gt;20&lt;/span&gt; 文件名 &lt;span class=&#34;token comment&#34;&gt;#只看尾 20 行&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;man&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;命令&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#man cp 查看 cp 的使用文档&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#cat /etc/passwd 账号密码信息&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#cat /etc/shadow 密码信息都是经过加密的&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-29_19-06-20.png&#34; alt=&#34;密码&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;切换目录&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#切换目录&#34;&gt;#&lt;/a&gt; 切换目录&lt;/h2&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; 文件夹名 &lt;span class=&#34;token comment&#34;&gt;#进入文件夹:cd usr&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; 绝对路径 &lt;span class=&#34;token comment&#34;&gt;#切换到该路径:cd /usr/local/src, 其中:cd / 切换到根目录，cd ~ 切换到 /root&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; 相对路径 &lt;span class=&#34;token comment&#34;&gt;#切到该路径下的目录: cd ./usr/&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#返回上一级&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;/&lt;span class=&#34;token comment&#34;&gt;#返回上一级目录&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;pwd&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;# 查看当前目录&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;删除文件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#删除文件&#34;&gt;#&lt;/a&gt; 删除文件&lt;/h2&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;rm&lt;/span&gt; 文件名 &lt;span class=&#34;token comment&#34;&gt;#删除文件&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;-f 忽略不存在的文件,不会出现警告强制删除&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;-r 递归删除目录&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;rm&lt;/span&gt; -rf / &lt;span class=&#34;token comment&#34;&gt;#删库跑路！&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;rm&lt;/span&gt; -rf 文件夹 &lt;span class=&#34;token comment&#34;&gt;#删除文件夹下的所有文件&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;rmdir&lt;/span&gt; 文件夹 &lt;span class=&#34;token comment&#34;&gt;#删除为空的文件夹&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;rmdir&lt;/span&gt; -p 文件夹 &lt;span class=&#34;token comment&#34;&gt;#删除文件夹包含里面的内容&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;创建文件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#创建文件&#34;&gt;#&lt;/a&gt; 创建文件&lt;/h2&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;mkdir&lt;/span&gt; 文件夹名 &lt;span class=&#34;token comment&#34;&gt;#创建文件夹&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;mkdir&lt;/span&gt; 文件夹1/文件夹2/文件夹3 &lt;span class=&#34;token comment&#34;&gt;#在当前目录下创建文件夹 1, 文件夹 1 下创建文件夹 2, 文件夹 2 下创建文件夹 3&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;复制文件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#复制文件&#34;&gt;#&lt;/a&gt; 复制文件&lt;/h2&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;cp&lt;/span&gt; 文件路径1/文件名 文件路径2 &lt;span class=&#34;token comment&#34;&gt;#将文件从文件路径 1 拷贝到文件路径 2&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;移动文件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#移动文件&#34;&gt;#&lt;/a&gt; 移动文件&lt;/h2&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;mv&lt;/span&gt; 文件夹或文件名 文件路径 &lt;span class=&#34;token comment&#34;&gt;#将文件夹或文件移动到另一个文件路径下&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;mv&lt;/span&gt; 文件夹1或文件名1 文件夹2或文件名2 &lt;span class=&#34;token comment&#34;&gt;#将文件夹或文件名更名 &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;-f 强制移动&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;-u 只替换更新的文件夹&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;网络&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#网络&#34;&gt;#&lt;/a&gt; 网络&lt;/h2&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#centOS7 中网络配置文件在 cd/etc/sysconfig/network-scripts&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ifconfig&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#查看网络配置&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ping&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#ping 一个网址&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;主机&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#主机&#34;&gt;#&lt;/a&gt; 主机&lt;/h2&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;hostname&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#查看主句名称&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;hostname&lt;/span&gt; 名称 &lt;span class=&#34;token comment&#34;&gt;#修改名称，重启后生效&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;修改环境变量&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#修改环境变量&#34;&gt;#&lt;/a&gt; 修改环境变量&lt;/h2&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;vi&lt;/span&gt; /etc/profile &lt;span class=&#34;token comment&#34;&gt;#修改全局环境变量&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;:w &lt;span class=&#34;token comment&#34;&gt;#保存修改的环境变量&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;:q &lt;span class=&#34;token comment&#34;&gt;#退出&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;:wq &lt;span class=&#34;token comment&#34;&gt;# 保存环境变量并退出&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;硬链接和软链接&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#硬链接和软链接&#34;&gt;#&lt;/a&gt; 硬链接和软链接&lt;/h2&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ln&lt;/span&gt; 文件路径1 文件路径2 &lt;span class=&#34;token comment&#34;&gt;#创建软链接 (符号链接)-- 删除源文件链接失效&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ln&lt;/span&gt; -s 文件路径1 文件路径2 &lt;span class=&#34;token comment&#34;&gt;#创建硬链接 -- 删除源文件链接依然有效&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;touch&lt;/span&gt; 文件名 &lt;span class=&#34;token comment&#34;&gt;#创建文件&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;字符串&#34;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&gt;&gt;&lt;/span&gt; 文件名 &lt;span class=&#34;token comment&#34;&gt;#向文件写入字符串&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;vim编辑器简略&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#vim编辑器简略&#34;&gt;#&lt;/a&gt; vim 编辑器 (简略)&lt;/h2&gt;
+&lt;p&gt;&amp;lt;img src=&amp;quot;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9pbWFnZXMwLmNuYmxvZ3MuY29tL2Jsb2cyMDE1LzUxNTY4NC8yMDE1MDMvMjcxNzE1NTUwMDU2NzU2LmpwZw==&#34;&gt;https://images0.cnblogs.com/blog2015/515684/201503/271715550056756.jpg&lt;/span&gt;&amp;quot; alt=&amp;quot;vim&amp;quot; style=&amp;quot;zoom:50%;&amp;quot; /&amp;gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;vim&lt;/span&gt; 文件名/路径下的文件 &lt;span class=&#34;token comment&#34;&gt;#如果文件不存在新建文件并编辑，如果存在则直接编辑&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#按下 i 进入编辑模式&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#按下：进入底线命令模式，如果是在编辑模式下要先按 esc&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#编辑命令&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;数字&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;space&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#输入数字后按下空格光标移动 n 个位置&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;数字&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;enter&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#输入数字后按下回车光标移动 n 行&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;或者home键 &lt;span class=&#34;token comment&#34;&gt;#回到文件开头&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$或者end键 &lt;span class=&#34;token comment&#34;&gt;#回到文件末尾&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;u &lt;span class=&#34;token comment&#34;&gt;#复原前一个动作&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#底线命令&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;:w &lt;span class=&#34;token comment&#34;&gt;#保存修改的文件变量&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;:q &lt;span class=&#34;token comment&#34;&gt;#退出&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;:wq &lt;span class=&#34;token comment&#34;&gt;#保存文件并退出&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;:wq&lt;span class=&#34;token operator&#34;&gt;!&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#强制保存并退出&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;:set nu &lt;span class=&#34;token comment&#34;&gt;#设置行号&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;:set nonu &lt;span class=&#34;token comment&#34;&gt;#取消设置行号&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#ctrl+z 退出 vim&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;账号管理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#账号管理&#34;&gt;#&lt;/a&gt; 账号管理&lt;/h2&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;useradd&lt;/span&gt; -m 用户名 &lt;span class=&#34;token comment&#34;&gt;#自动创建该用户的主目录&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;-c &lt;span class=&#34;token string&#34;&gt;&#34;描述&#34;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#指定一段描述&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;-d &lt;span class=&#34;token comment&#34;&gt;#指定用户主目录，如果主目录不存在需要使用 - m&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;-g &lt;span class=&#34;token comment&#34;&gt;#指定用户组&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;-G &lt;span class=&#34;token comment&#34;&gt;#指定用户的附加组&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;-m &lt;span class=&#34;token comment&#34;&gt;#使用者目录不在则自动创建&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;-s Shell文件 &lt;span class=&#34;token comment&#34;&gt;#指定用户登录的 shell&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;-u &lt;span class=&#34;token comment&#34;&gt;#指定用户的用户号如果有 - o 选项可以重复使用其他用户的标识号&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;userdel&lt;/span&gt; -r 用户名 &lt;span class=&#34;token comment&#34;&gt;#删除用户及其目录&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;-r &lt;span class=&#34;token comment&#34;&gt;#清空目录&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;usermod&lt;/span&gt; 对应修改内容 用户名&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;usermod&lt;/span&gt; -d /home/xu honshen &lt;span class=&#34;token comment&#34;&gt;#将 honshen 用户的目录 honshen 修改为 xu&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;su&lt;/span&gt; 用户名 &lt;span class=&#34;token comment&#34;&gt;#切换用户，su - 用户名 切换到用户且到用户目录下&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;password 用户名 &lt;span class=&#34;token comment&#34;&gt;#通过 root 创建账户后修改账户密码，Linux 输入密码是不会显示的&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;password &lt;span class=&#34;token comment&#34;&gt;#修改自己账户的密码&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;password -l 用户名 &lt;span class=&#34;token comment&#34;&gt;#锁定一个用户不能登录&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;password -u 用户名 &lt;span class=&#34;token comment&#34;&gt;#解锁一个用户&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;password -d 用户名 &lt;span class=&#34;token comment&#34;&gt;#清除密码，清除后不能登录&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;用户组&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#用户组&#34;&gt;#&lt;/a&gt; 用户组&lt;/h2&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#用户组的增删改查是对 /etc/group 文件的更新&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;groupadd&lt;/span&gt; 用户组名 &lt;span class=&#34;token comment&#34;&gt;#添加一个用户组，id 从 1000 开始&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;groupadd&lt;/span&gt; -d  &lt;span class=&#34;token number&#34;&gt;1003&lt;/span&gt; 用户组名 &lt;span class=&#34;token comment&#34;&gt;#添加一个用户组，id 为 1003&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;groupdel&lt;/span&gt; 用户组名 &lt;span class=&#34;token comment&#34;&gt;#删除一个用户组&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;groupmod&lt;/span&gt; -g id名 -n 新用户组名 用户组 &lt;span class=&#34;token comment&#34;&gt;#给一个用户组更名更 id&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ newgrp root &lt;span class=&#34;token comment&#34;&gt;#登录当前用户切换到 root 组&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;磁盘&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#磁盘&#34;&gt;#&lt;/a&gt; 磁盘&lt;/h2&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;df&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#列出文件整体使用量 (以字节为单位)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;df&lt;/span&gt; -h &lt;span class=&#34;token comment&#34;&gt;#列出文件整体使用量 (以 M 为单位)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;du&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#检查磁盘空间使用量&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;du&lt;/span&gt; -a &lt;span class=&#34;token comment&#34;&gt;#检查磁盘及子文件夹&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;du&lt;/span&gt; -sm  /* &lt;span class=&#34;token comment&#34;&gt;#检查根目录下的文件占用的容量，一般 /usr 占用资源最大&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;外部设备&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#外部设备&#34;&gt;#&lt;/a&gt; 外部设备&lt;/h2&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;mount&lt;/span&gt; /dev/xu /mnt/xu &lt;span class=&#34;token comment&#34;&gt;#将名为 xu 的 u 盘挂载到 mnt 目录下，来实现访问 u 盘&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;umount&lt;/span&gt; -f 挂载位置&lt;span class=&#34;token comment&#34;&gt;#强制卸载 u 盘&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;进程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#进程&#34;&gt;#&lt;/a&gt; 进程&lt;/h2&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ps&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#查看当前系统进程&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ps&lt;/span&gt; -help &lt;span class=&#34;token comment&#34;&gt;#查看命令的帮助&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;-a &lt;span class=&#34;token comment&#34;&gt;#显示所有进程&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;-u &lt;span class=&#34;token comment&#34;&gt;#i&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;-x &lt;span class=&#34;token comment&#34;&gt;#显示后台进程的参数&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;grep&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#查找文件中符合条件的字符串&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# | 是管道符 A|B 将 A 的结果拿给 B&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ps&lt;/span&gt; -aux&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;grep&lt;/span&gt; nodejs &lt;span class=&#34;token comment&#34;&gt;#查看所有 nodejs 进程&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ps&lt;/span&gt; -ef&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;grep&lt;/span&gt; mysql &lt;span class=&#34;token comment&#34;&gt;#查看 mysql 的父进程&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pstree -pu &lt;span class=&#34;token comment&#34;&gt;#以目录结构查看进程&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ps&lt;/span&gt; -ef &lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;grep&lt;/span&gt; &lt;span class=&#34;token environment constant&#34;&gt;$USER&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#查看用户进程&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ps&lt;/span&gt; -aux&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;grep&lt;/span&gt; 进程&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;awk&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;&amp;#123;print &lt;span class=&#34;token variable&#34;&gt;$2&lt;/span&gt;&amp;#125;&#39;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#查看进程号，如:ps -aux|grep nodejs|awk &#39;&amp;#123;print $2&amp;#125;&#39;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;kill&lt;/span&gt; -9 &lt;span class=&#34;token variable&#34;&gt;&lt;span class=&#34;token variable&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;ps&lt;/span&gt; -aux&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;grep&lt;/span&gt; 进程&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;awk&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;&amp;#123;print &lt;span class=&#34;token variable&#34;&gt;$2&lt;/span&gt;&amp;#125;&#39;&lt;/span&gt;&lt;span class=&#34;token variable&#34;&gt;`&lt;/span&gt;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#杀掉指定进程如: kill -9 `ps -aux|grep hexo|awk &#39;&amp;#123;print $2&amp;#125;&#39;`&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;-p -u &lt;span class=&#34;token comment&#34;&gt;#-p 显示父 id -u 显示用户组&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;kill&lt;/span&gt; -9 进程id &lt;span class=&#34;token comment&#34;&gt;#强制结束进程&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;防火墙&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#防火墙&#34;&gt;#&lt;/a&gt; 防火墙&lt;/h2&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#查看 firewall 服务状态 systemctl status firewalld&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#开启、重启、关闭、firewalld.service 服务&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;service&lt;/span&gt; firewalld start&lt;span class=&#34;token comment&#34;&gt;#开启&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;service&lt;/span&gt; firewalld restart&lt;span class=&#34;token comment&#34;&gt;#重启&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;service&lt;/span&gt; firewalld stop&lt;span class=&#34;token comment&#34;&gt;#关闭&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 查看防火墙规则&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;firewall-cmd --list-all&lt;span class=&#34;token comment&#34;&gt;#查看全部信息 firewall-cmd --list-ports# 只看端口信息&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#开启端口&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;开端口命令:firewall-cmd --zone&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;public --add-port&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;80&lt;/span&gt;/tcp --permanent&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;重启防火墙:systemctl restart firewalld.service&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;命令含义:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;--zone &lt;span class=&#34;token comment&#34;&gt;#作用域&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;--add-port&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;80&lt;/span&gt;/tcp &lt;span class=&#34;token comment&#34;&gt;#添加端口，格式为：端口 / 通讯协议&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;--permanent&lt;span class=&#34;token comment&#34;&gt;#永久生效，没有此参数重启后失效&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h1 id=&#34;nohup挂载后台进程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#nohup挂载后台进程&#34;&gt;#&lt;/a&gt; nohup 挂载后台进程&lt;/h1&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;h2 id=&#34;修改文件属性&#34;&gt;&lt;a href=&#34;#修改文件属性&#34; class=&#34;headerlink&#34; title=&#34;修改文件属性&#34;&gt;&lt;/a&gt;修改文件属性&lt;/h2&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;chgrp -R 属组名 文件名/文件夹名 # chgrp -R root www 将www属组改为root
-chown -R 属主名 文件名/文件夹名 # chown -R root www 将www属主改为root
-chmod -R xyz 文件/文件名
-r:4 w:2 x:1 -:0
-属主: rwx=4+2+1=7
-属组: rwx=7
-其他用户 ---=0
-chmod 777 文件名 #将一个文件属性修改为可读可写可执行,对所有用户有效赋予最高权限&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;h2 id=&#34;文件内容查看&#34;&gt;&lt;a href=&#34;#文件内容查看&#34; class=&#34;headerlink&#34; title=&#34;文件内容查看&#34;&gt;&lt;/a&gt;文件内容查看&lt;/h2&gt;&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;cat 文件名 #从第一行开始显示
-tac 文件名 #从最后一行倒着显示
-nl 文件名 #显示时输出行号
-more 文件名 #一页一页的显示,空格键翻页,enter向下翻一行,q键退出
-less 文件名 #比more更好,能往前翻页,键盘的上下键代表翻页,enter翻一行,到文件结束按下q键退出,输入字符/字符串查找/后的字符串在文件中的所有位置(向下查询),使用?字符串向下查找,例: /set (查找此页及后的所有set) ?set (查找此页及前的set字符) n表示查找下一个,N表示查找上一个
-head -n 20 文件名 #只看头20行
-tail -n 20 文件名 #只看尾20行
-man [命令] #man cp查看cp的使用文档
-#cat /etc/passwd 账号密码信息
-#cat /etc/shadow 密码信息都是经过加密的&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-29_19-06-20.png&#34; alt=&#34;密码&#34;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;h2 id=&#34;切换目录&#34;&gt;&lt;a href=&#34;#切换目录&#34; class=&#34;headerlink&#34; title=&#34;切换目录&#34;&gt;&lt;/a&gt;切换目录&lt;/h2&gt;&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;cd 文件夹名 #进入文件夹:cd usr
-cd 绝对路径 #切换到该路径:cd /usr/local/src,其中:cd / 切换到根目录,cd ~ 切换到/root
-cd 相对路径 #切到该路径下的目录: cd ./usr/
-cd .. #返回上一级
-cd ../#返回上一级目录
-pwd # 查看当前目录&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;h2 id=&#34;删除文件&#34;&gt;&lt;a href=&#34;#删除文件&#34; class=&#34;headerlink&#34; title=&#34;删除文件&#34;&gt;&lt;/a&gt;删除文件&lt;/h2&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;rm 文件名 #删除文件
--f 忽略不存在的文件,不会出现警告强制删除
--r 递归删除目录
-rm -rf / #删库跑路!
-rm -rf 文件夹 #删除文件夹下的所有文件
-rmdir 文件夹 #删除为空的文件夹
-rmdir -p 文件夹 #删除文件夹包含里面的内容&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;h2 id=&#34;创建文件&#34;&gt;&lt;a href=&#34;#创建文件&#34; class=&#34;headerlink&#34; title=&#34;创建文件&#34;&gt;&lt;/a&gt;创建文件&lt;/h2&gt;&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;mkdir 文件夹名 #创建文件夹
-mkdir 文件夹1/文件夹2/文件夹3 #在当前目录下创建文件夹1,文件夹1下创建文件夹2,文件夹2下创建文件夹3&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;h2 id=&#34;复制文件&#34;&gt;&lt;a href=&#34;#复制文件&#34; class=&#34;headerlink&#34; title=&#34;复制文件&#34;&gt;&lt;/a&gt;复制文件&lt;/h2&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;cp 文件路径1/文件名 文件路径2 #将文件从文件路径1拷贝到文件路径2&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;h2 id=&#34;移动文件&#34;&gt;&lt;a href=&#34;#移动文件&#34; class=&#34;headerlink&#34; title=&#34;移动文件&#34;&gt;&lt;/a&gt;移动文件&lt;/h2&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;mv 文件夹或文件名 文件路径 #将文件夹或文件移动到另一个文件路径下
-mv 文件夹1或文件名1 文件夹2或文件名2 #将文件夹或文件名更名 
--f 强制移动
--u 只替换更新的文件夹&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;h2 id=&#34;网络&#34;&gt;&lt;a href=&#34;#网络&#34; class=&#34;headerlink&#34; title=&#34;网络&#34;&gt;&lt;/a&gt;网络&lt;/h2&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;#centOS7中网络配置文件在 cd/etc/sysconfig/network-scripts
-ifconfig #查看网络配置
-ping #ping一个网址&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;h2 id=&#34;主机&#34;&gt;&lt;a href=&#34;#主机&#34; class=&#34;headerlink&#34; title=&#34;主机&#34;&gt;&lt;/a&gt;主机&lt;/h2&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;hostname #查看主句名称
-hostname 名称 #修改名称,重启后生效&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;h2 id=&#34;修改环境变量&#34;&gt;&lt;a href=&#34;#修改环境变量&#34; class=&#34;headerlink&#34; title=&#34;修改环境变量&#34;&gt;&lt;/a&gt;修改环境变量&lt;/h2&gt;&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;vi /etc/profile #修改全局环境变量
-:w #保存修改的环境变量
-:q #退出
-:wq # 保存环境变量并退出&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;h2 id=&#34;硬链接和软链接&#34;&gt;&lt;a href=&#34;#硬链接和软链接&#34; class=&#34;headerlink&#34; title=&#34;硬链接和软链接&#34;&gt;&lt;/a&gt;硬链接和软链接&lt;/h2&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;ln 文件路径1 文件路径2 #创建软链接(符号链接)--删除源文件链接失效
-ln -s 文件路径1 文件路径2 #创建硬链接--删除源文件链接依然有效
-touch 文件名 #创建文件
-echo &amp;quot;字符串&amp;quot; &amp;gt;&amp;gt; 文件名 #向文件写入字符串&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;h2 id=&#34;vim编辑器-简略&#34;&gt;&lt;a href=&#34;#vim编辑器-简略&#34; class=&#34;headerlink&#34; title=&#34;vim编辑器(简略)&#34;&gt;&lt;/a&gt;vim编辑器(简略)&lt;/h2&gt;&lt;img data-src=&#34;https://images0.cnblogs.com/blog2015/515684/201503/271715550056756.jpg&#34; alt=&#34;vim&#34; style=&#34;zoom:50%;&#34; /&gt;
-
-&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;vim 文件名/路径下的文件 #如果文件不存在新建文件并编辑,如果存在则直接编辑
-#按下i进入编辑模式
-#按下:进入底线命令模式,如果是在编辑模式下要先按esc
-#编辑命令
-数字&amp;lt;space&amp;gt; #输入数字后按下空格光标移动n个位置
-数字&amp;lt;enter&amp;gt; #输入数字后按下回车光标移动n行
-0或者home键 #回到文件开头
-$或者end键 #回到文件末尾
-u #复原前一个动作
-#底线命令
-:w #保存修改的文件变量
-:q #退出
-:wq #保存文件并退出
-:wq! #强制保存并退出
-:set nu #设置行号
-:set nonu #取消设置行号
-#ctrl+z退出vim&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;h2 id=&#34;账号管理&#34;&gt;&lt;a href=&#34;#账号管理&#34; class=&#34;headerlink&#34; title=&#34;账号管理&#34;&gt;&lt;/a&gt;账号管理&lt;/h2&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;useradd -m 用户名 #自动创建该用户的主目录
--c &amp;quot;描述&amp;quot; #指定一段描述
--d #指定用户主目录,如果主目录不存在需要使用-m
--g #指定用户组
--G #指定用户的附加组
--m #使用者目录不在则自动创建
--s Shell文件 #指定用户登录的shell
--u #指定用户的用户号如果有-o选项可以重复使用其他用户的标识号
-userdel -r 用户名 #删除用户及其目录
--r #清空目录
-usermod 对应修改内容 用户名
-usermod -d /home/xu honshen #将honshen用户的目录honshen修改为xu
-su 用户名 #切换用户,su -用户名 切换到用户且到用户目录下
-password 用户名 #通过root创建账户后修改账户密码,Linux输入密码是不会显示的
-password #修改自己账户的密码
-password -l 用户名 #锁定一个用户不能登录
-password -u 用户名 #解锁一个用户
-password -d 用户名 #清除密码,清除后不能登录&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;h2 id=&#34;用户组&#34;&gt;&lt;a href=&#34;#用户组&#34; class=&#34;headerlink&#34; title=&#34;用户组&#34;&gt;&lt;/a&gt;用户组&lt;/h2&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;#用户组的增删改查是对 /etc/group文件的更新
-groupadd 用户组名 #添加一个用户组,id从1000开始
-groupadd -d  1003 用户组名 #添加一个用户组,id为1003
-groupdel 用户组名 #删除一个用户组
-groupmod -g id名 -n 新用户组名 用户组 #给一个用户组更名更id
-$ newgrp root #登录当前用户切换到root组&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;h2 id=&#34;磁盘&#34;&gt;&lt;a href=&#34;#磁盘&#34; class=&#34;headerlink&#34; title=&#34;磁盘&#34;&gt;&lt;/a&gt;磁盘&lt;/h2&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;df #列出文件整体使用量(以字节为单位)
-df -h #列出文件整体使用量(以M为单位)
-du #检查磁盘空间使用量
-du -a #检查磁盘及子文件夹
-du -sm  /* #检查根目录下的文件占用的容量,一般/usr占用资源最大&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;h2 id=&#34;外部设备&#34;&gt;&lt;a href=&#34;#外部设备&#34; class=&#34;headerlink&#34; title=&#34;外部设备&#34;&gt;&lt;/a&gt;外部设备&lt;/h2&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;mount /dev/xu /mnt/xu #将名为xu的u盘挂载到mnt目录下,来实现访问u盘
-umount -f 挂载位置#强制卸载u盘&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;h2 id=&#34;进程&#34;&gt;&lt;a href=&#34;#进程&#34; class=&#34;headerlink&#34; title=&#34;进程&#34;&gt;&lt;/a&gt;进程&lt;/h2&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;ps #查看当前系统进程
-ps -help #查看命令的帮助
--a #显示所有进程
--u #i
--x #显示后台进程的参数
-grep #查找文件中符合条件的字符串
-# | 是管道符A|B将A的结果拿给B
-ps -aux|grep nodejs #查看所有nodejs进程
-ps -ef|grep mysql #查看mysql的父进程
-pstree -pu
-ps -ef | grep $USER #查看用户进程
-ps -aux|grep 进程|awk &amp;#39;&amp;#123;print $2&amp;#125;&amp;#39; #查看进程号,如:ps -aux|grep nodejs|awk &amp;#39;&amp;#123;print $2&amp;#125;&amp;#39;
-kill -9 `ps -aux|grep 进程|awk &amp;#39;&amp;#123;print $2&amp;#125;&amp;#39;` #杀掉指定进程如: kill -9 `ps -aux|grep hexo|awk &amp;#39;&amp;#123;print $2&amp;#125;&amp;#39;`
--p -u #-p显示父id -u显示用户组
-kill -9 进程id #强制结束进程&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;h2 id=&#34;防火墙&#34;&gt;&lt;a href=&#34;#防火墙&#34; class=&#34;headerlink&#34; title=&#34;防火墙&#34;&gt;&lt;/a&gt;防火墙&lt;/h2&gt;&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;#查看firewall服务状态systemctl status firewalld
-#开启、重启、关闭、firewalld.service服务
-service firewalld start#开启
-service firewalld restart#重启
-service firewalld stop#关闭
-
-# 查看防火墙规则
-firewall-cmd --list-all#查看全部信息firewall-cmd --list-ports#只看端口信息
-
-#开启端口
-开端口命令:firewall-cmd --zone=public --add-port=80/tcp --permanent
-重启防火墙:systemctl restart firewalld.service
-
-命令含义:
---zone #作用域
---add-port= 80/tcp #添加端口，格式为:端口/通讯协议
---permanent#永久生效，没有此参数重启后失效&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;nohup挂载后台进程&#34;&gt;&lt;a href=&#34;#nohup挂载后台进程&#34; class=&#34;headerlink&#34; title=&#34;nohup挂载后台进程&#34;&gt;&lt;/a&gt;nohup挂载后台进程&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;使用命令&lt;code&gt;onhup command [args...] &amp;amp;&lt;/code&gt;挂载后台进程,接着使用exit断开与服务器的连接,终端会忽略收到 HUP（hangup）信号从而不关闭其所有子进程~如下: &lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;onhup hexo s -p 80 &amp;amp;
-exit&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;我们可以使用&lt;code&gt;jobs -l&lt;/code&gt;或&lt;code&gt;ps -ef&lt;/code&gt;查看后台进程,例如我们查看nojs进程并输出其进程Id&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;ps -aux|grep nodejs|awk &amp;#39;&amp;#123;print $2&amp;#125;&amp;#39;&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;拿到进程号以后,我们使用&lt;code&gt;fg jubNumber&lt;/code&gt;将该进程调至前台,并可以直接终结该进程&lt;/p&gt;
-&lt;p&gt;我们也可以使用&lt;code&gt;Ctrl+z&lt;/code&gt;来将一个前台命令放到后台并暂停执行&lt;/p&gt;
-&lt;p&gt;接着我们使用&lt;code&gt;bg jobNumber&lt;/code&gt;来将一个后台暂停的命令继续&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;[root@iz2zeg6qs3stnlr0awniwwz hongsheng-xu]# nohup hexo s -p 80 &amp;amp;
-[1] 3032
-[root@iz2zeg6qs3stnlr0awniwwz hongsheng-xu]# nohup: ignoring input and appending output to ‘nohup.out’
-
-[root@iz2zeg6qs3stnlr0awniwwz hongsheng-xu]# jobs
-[1]+  Running                 nohup hexo s -p 80 &amp;amp;
-[root@iz2zeg6qs3stnlr0awniwwz hongsheng-xu]# fg 1
-nohup hexo s -p 80
-^Z
-[1]+  Stopped                 nohup hexo s -p 80
-[root@iz2zeg6qs3stnlr0awniwwz hongsheng-xu]# bg 1
-[1]+ nohup hexo s -p 80 &amp;amp;
-[root@iz2zeg6qs3stnlr0awniwwz hongsheng-xu]# &lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;如果后台进程挂载失败,使用&lt;code&gt;lsof -i:端口号&lt;/code&gt;去查看端口的进程,使用&lt;code&gt;nestat&lt;/code&gt;去查看其占用的端口&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;losf -i:80&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;netstat -ap|grep 80&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;接着使用&lt;code&gt;kill -9 进程号&lt;/code&gt;去终结该进程的运行&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;使用命令 &lt;code&gt;onhup command [args...] &amp;amp;&lt;/code&gt;  挂载后台进程，接着使用 exit 断开与服务器的连接，终端会忽略收到 HUP（hangup）信号从而不关闭其所有子进程～如下:&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;onhup hexo s -p &lt;span class=&#34;token number&#34;&gt;80&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;exit&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;我们可以使用 &lt;code&gt;jobs -l&lt;/code&gt;  或 &lt;code&gt;ps -ef&lt;/code&gt;  查看后台进程，例如我们查看 nojs 进程并输出其进程 Id&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ps&lt;/span&gt; -aux&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;grep&lt;/span&gt; nodejs&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;awk&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;&amp;#123;print &lt;span class=&#34;token variable&#34;&gt;$2&lt;/span&gt;&amp;#125;&#39;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;拿到进程号以后，我们使用 &lt;code&gt;fg jubNumber&lt;/code&gt;  将该进程调至前台，并可以直接终结该进程&lt;/p&gt;
+&lt;p&gt;我们也可以使用 &lt;code&gt;Ctrl+z&lt;/code&gt;  来将一个前台命令放到后台并暂停执行&lt;/p&gt;
+&lt;p&gt;接着我们使用 &lt;code&gt;bg jobNumber&lt;/code&gt;  来将一个后台暂停的命令继续&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;root@iz2zeg6qs3stnlr0awniwwz hongsheng-xu&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;# nohup hexo s -p 80 &amp;amp;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;3032&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;root@iz2zeg6qs3stnlr0awniwwz hongsheng-xu&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;# nohup: ignoring input and appending output to ‘nohup.out’&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;root@iz2zeg6qs3stnlr0awniwwz hongsheng-xu&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;# jobs&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;+  Running                 &lt;span class=&#34;token function&#34;&gt;nohup&lt;/span&gt; hexo s -p &lt;span class=&#34;token number&#34;&gt;80&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;root@iz2zeg6qs3stnlr0awniwwz hongsheng-xu&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;# fg 1&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;nohup&lt;/span&gt; hexo s -p &lt;span class=&#34;token number&#34;&gt;80&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;^Z&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;+  Stopped                 &lt;span class=&#34;token function&#34;&gt;nohup&lt;/span&gt; hexo s -p &lt;span class=&#34;token number&#34;&gt;80&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;root@iz2zeg6qs3stnlr0awniwwz hongsheng-xu&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;# bg 1&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;+ &lt;span class=&#34;token function&#34;&gt;nohup&lt;/span&gt; hexo s -p &lt;span class=&#34;token number&#34;&gt;80&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;root@iz2zeg6qs3stnlr0awniwwz hongsheng-xu&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;#&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果后台进程挂载失败，使用 &lt;code&gt;lsof -i:端口号&lt;/code&gt; 去查看端口的进程，使用 &lt;code&gt;nestat&lt;/code&gt;  去查看其占用的端口&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;losf -i:80&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;netstat&lt;/span&gt; -ap&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;grep&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;80&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;接着使用 &lt;code&gt;kill -9 进程号&lt;/code&gt; 去终结该进程的运行&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 </content>
@@ -924,14 +1125,26 @@ nohup hexo s -p 80
 &lt;/ul&gt;
 &lt;p&gt;我们打开shoka文件夹,找到里面_config.yml文件,这个文件是主题配置文件,使用vscode打开编辑配置如图,vscode下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9jb2RlLnZpc3VhbHN0dWRpby5jb20v&#34;&gt;https://code.visualstudio.com/&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-30_13-46-23.png&#34; alt=&#34;主题配置文件&#34;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-30_14-27-20.png&#34; alt=&#34;配置2&#34;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-30_14-48-59.png&#34; alt=&#34;配置3&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly92YWxpbmUuanMub3JnL3F1aWNrc3RhcnQuaHRtbA==&#34;&gt;点击此处了解如何获取AppID和Appkey&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-30_15-06-43.png&#34; alt=&#34;配置4&#34;&gt;&lt;/p&gt;
-&lt;p&gt;接下来我们修改全局配置文件_config.yml&lt;strong&gt;注意这个文件名和主题的文件名是一样的别修改错文件了&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-30_15-27-23.png&#34; alt=&#34;全局配置1&#34;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly92YWxpbmUuanMub3JnL3F1aWNrc3RhcnQuaHRtbA==&#34;&gt;点击此处了解如何获取AppID和Appkey&lt;/span&gt;&lt;br&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-30_15-06-43.png&#34; alt=&#34;配置4&#34;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;接下来我们修改全局配置文件_config.yml&lt;strong&gt;注意这个文件名和主题的文件名是一样的别修改错文件了&lt;/strong&gt;&lt;br&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-30_15-27-23.png&#34; alt=&#34;全局配置1&#34;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-30_15-39-09.png&#34; alt=&#34;全局配置2&#34;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-30_15-41-43.png&#34; alt=&#34;全局配置3&#34;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
 &lt;p&gt;这些代码直接复制粘贴到全局配置文件即可这里会使用到搜索功能因此需要appId和apikey,这里有一篇博客能够帮助大家获取到appId和apikey: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1NDc5NDY4L2FydGljbGUvZGV0YWlscy8xMDczMzU2NjM=&#34;&gt;为Hexo增加algolia搜索功能&lt;/span&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;yml&#34;&gt;# edit for Theme.shoka
 autoprefixer:
@@ -2535,57 +2748,64 @@ public class demo &amp;#123;
         <id>https://honshen.xyz/2020/12/13/Hexo/%E7%AC%AC1%E7%AB%A0-%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E4%B9%8BHEXO%E5%8F%8A%E5%85%B6%E5%88%9D%E5%A7%8B%E5%8C%96/</id>
         <title>第1章-零基础使用HEXO搭建个人博客之HEXO及其初始化</title>
         <link rel="alternate" href="https://honshen.xyz/2020/12/13/Hexo/%E7%AC%AC1%E7%AB%A0-%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E4%B9%8BHEXO%E5%8F%8A%E5%85%B6%E5%88%9D%E5%A7%8B%E5%8C%96/"/>
-        <content type="html">&lt;h1 id=&#34;零基础hexo搭建个人博客之hexo安装及其初始化&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#零基础hexo搭建个人博客之hexo安装及其初始化&#34;&gt;#&lt;/a&gt; 零基础 HEXO 搭建个人博客之 HEXO 安装及其初始化&lt;/h1&gt;
-&lt;p&gt;&lt;strong&gt;引言：很多小伙伴都希望搭建一个属于自己的博客平台，今天这篇文章教会大家如何 0 基础也能搭建个人博客，我们使用 Hexo 来帮助我们搭建个人博客～&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;准备&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#准备&#34;&gt;#&lt;/a&gt; 准备&lt;/h2&gt;
-&lt;blockquote&gt;
+        <content type="html">&lt;h1 id=&#34;零基础HEXO搭建个人博客之HEXO安装及其初始化&#34;&gt;&lt;a href=&#34;#零基础HEXO搭建个人博客之HEXO安装及其初始化&#34; class=&#34;headerlink&#34; title=&#34;零基础HEXO搭建个人博客之HEXO安装及其初始化&#34;&gt;&lt;/a&gt;零基础HEXO搭建个人博客之HEXO安装及其初始化&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;引言: 很多小伙伴都希望搭建一个属于自己的博客平台,今天这篇文章教会大家如何0基础也能搭建个人博客,我们使用Hexo来帮助我们搭建个人博客~&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;准备&#34;&gt;&lt;a href=&#34;#准备&#34; class=&#34;headerlink&#34; title=&#34;准备&#34;&gt;&lt;/a&gt;准备&lt;/h2&gt;&lt;blockquote&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9iZWJiYTBkODAzOGU=&#34;&gt;安装 git&lt;/span&gt;--&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXQtc2NtLmNvbS8=&#34;&gt;git 官网&lt;/span&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9iZWJiYTBkODAzOGU=&#34;&gt;安装git&lt;/span&gt;–&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXQtc2NtLmNvbS8=&#34;&gt;git官网&lt;/span&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC8xM2Y0NWUyNGIxZGU=&#34;&gt;安装 nodejs&lt;/span&gt;--&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==&#34;&gt;nodejs 官网&lt;/span&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC8xM2Y0NWUyNGIxZGU=&#34;&gt;安装nodejs&lt;/span&gt;–&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==&#34;&gt;nodejs官网&lt;/span&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC8wYzBkOGQxMGExY2I=&#34;&gt;注册 github&lt;/span&gt;-- 创建一个和 Username 一样名称的仓库&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9pbWdjaHIuY29tL2kvclNOZFo4&#34;&gt; &amp;lt;img src=&amp;quot;https://s3.ax1x.com/2020/12/08/rSNdZ8.md.png&amp;quot; alt=&amp;quot;创建仓库&amp;quot;  /&amp;gt;&lt;/span&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC8wYzBkOGQxMGExY2I=&#34;&gt;注册github&lt;/span&gt;–创建一个和Username一样名称的仓库&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://s3.ax1x.com/2020/12/08/rSNdZ8.md.png&#34; alt=&#34;创建仓库&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Tips: 创建仓库名如果与 Username 不一致，请在下文初始化博客和配置博客文件时使用和仓库名一样的名字！！！&lt;strong&gt;访问链接 https:// 仓库名.github.io 访问&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Tips: 创建仓库名如果与Username不一致,请在下文初始化博客和配置博客文件时使用和仓库名一样的名字!!! &lt;strong&gt;访问链接https://仓库名.github.io访问&lt;/strong&gt; &lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;git&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git&#34;&gt;#&lt;/a&gt; Git&lt;/h2&gt;
-&lt;blockquote&gt;
+&lt;h2 id=&#34;Git&#34;&gt;&lt;a href=&#34;#Git&#34; class=&#34;headerlink&#34; title=&#34;Git&#34;&gt;&lt;/a&gt;Git&lt;/h2&gt;&lt;blockquote&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;在任意文件夹里，点击鼠标右键，选择 Git bash here, 打开 git bash 输入配置信息&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;在任意文件夹里,点击鼠标右键,选择Git bash here,打开git bash输入配置信息&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; config --global user.name &lt;span class=&#34;token string&#34;&gt;&#34;用户名&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; config --global user.email &lt;span class=&#34;token string&#34;&gt;&#34;邮箱地址&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 例如:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; config --global user.name &lt;span class=&#34;token string&#34;&gt;&#34;hongsheng-xu&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; config --global user.email &lt;span class=&#34;token string&#34;&gt;&#34;1394948572@qq.com&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;git config --global user.name &amp;quot;用户名&amp;quot;
+git config --global user.email &amp;quot;邮箱地址&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;# 例如:
+git config --global user.name &amp;quot;hongsheng-xu&amp;quot;
+git config --global user.email &amp;quot;1394948572@qq.com&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/blockquote&gt;
 &lt;blockquote&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;
-&lt;p&gt;在 git bash 里输入&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;在git bash 里输入&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ssh-keygen -t rsa -C  &lt;span class=&#34;token string&#34;&gt;&#34;邮箱地址&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#例如: &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ssh-keygen -t rsa -C  &lt;span class=&#34;token string&#34;&gt;&#34;1394948572@qq.com&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;ssh-keygen -t rsa -C  &amp;quot;邮箱地址&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;#例如: 
+ssh-keygen -t rsa -C  &amp;quot;1394948572@qq.com&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;控制台输出如下:&lt;/p&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Enter &lt;span class=&#34;token function&#34;&gt;file&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;which&lt;/span&gt; to save the key &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;/c/Users/13949/.ssh/id_rsa&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Created directory &lt;span class=&#34;token string&#34;&gt;&#39;/c/Users/13949/.ssh&#39;&lt;/span&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;.&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Enter passphrase &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;empty &lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt; no passphrase&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Enter same passphrase again:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Your identification has been saved &lt;span class=&#34;token keyword&#34;&gt;in&lt;/span&gt; /c/Users/13949/.ssh/id_rsa&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Your public key has been saved &lt;span class=&#34;token keyword&#34;&gt;in&lt;/span&gt; /c/Users/13949/.ssh/id_rsa.pub&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;The key fingerprint is:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#后文输出省略......&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;pre&gt;&lt;code class=&#34;language-cmd&#34;&gt;# 打开目录--控制台第二行输出Created directory &#39;/c/Users/13949/.ssh&#39;.其中ssh的存放路径为:
+&lt;p&gt;控制台输出如下: &lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;Enter file in which to save the key (/c/Users/13949/.ssh/id_rsa):
+Created directory &amp;#39;/c/Users/13949/.ssh&amp;#39;.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/13949/.ssh/id_rsa
+Your public key has been saved in /c/Users/13949/.ssh/id_rsa.pub
+The key fingerprint is:
+#后文输出省略......&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;cmd&#34;&gt;# 打开目录--控制台第二行输出Created directory &amp;#39;/c/Users/13949/.ssh&amp;#39;.其中ssh的存放路径为:
 C:\Users\13949\.ssh
-# 打开github&amp;gt;点击个人头像&amp;gt;点击设置(Settings)&amp;gt;点击SSH and GPG keys&amp;gt;New SSH key&amp;gt;在路径:C:\Users\13949\.ssh记事本打开id_rsa.pub文件,复制全部到New SSH key中key内容里
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;a href=&#34;https://imgchr.com/i/rSdmMn&#34;&gt;&lt;img data-src=&#34;https://s3.ax1x.com/2020/12/08/rSdmMn.md.png&#34; alt=&#34;rSdmMn.md.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+# 打开github&amp;gt;点击个人头像&amp;gt;点击设置(Settings)&amp;gt;点击SSH and GPG keys&amp;gt;New SSH key&amp;gt;在路径:C:\Users\13949\.ssh记事本打开id_rsa.pub文件,复制全部到New SSH key中key内容里&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&#34;https://imgchr.com/i/rSdmMn&#34;&gt;&lt;img data-src=&#34;https://s3.ax1x.com/2020/12/08/rSdmMn.md.png&#34; alt=&#34;rSdmMn.md.png&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h1 id=&#34;hexo安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hexo安装&#34;&gt;#&lt;/a&gt; Hexo 安装&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL3poLWNuL2RvY3Mv&#34;&gt;hexo 文档&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvLw==&#34;&gt;hexo 安装&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;Hexo安装&#34;&gt;&lt;a href=&#34;#Hexo安装&#34; class=&#34;headerlink&#34; title=&#34;Hexo安装&#34;&gt;&lt;/a&gt;Hexo安装&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL3poLWNuL2RvY3Mv&#34;&gt;hexo文档&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvLw==&#34;&gt;hexo安装&lt;/span&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;pre&gt;&lt;code class=&#34;language-cmd&#34;&gt;# 安装hexo, win+R,输入cmd 打开控制台输入: 
+&lt;pre&gt;&lt;code class=&#34;cmd&#34;&gt;# 安装hexo, win+R,输入cmd 打开控制台输入: 
 e: 
 md blog
 cd blog
@@ -2594,13 +2814,11 @@ npm install hexo-cli -g
 C:\Users\13949&amp;gt;e:
 E:\&amp;gt;md blog
 E:\&amp;gt;cd blog
-E:\blog&amp;gt;npm install hexo-cli -g
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;Tips: 通过上述代码在 E 盘创建了一个名为 blog 的文件夹，接下来我们需要做的就是初始化个人博客&lt;/strong&gt;&lt;/p&gt;
+E:\blog&amp;gt;npm install hexo-cli -g&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Tips: 通过上述代码在E盘创建了一个名为blog的文件夹,接下来我们需要做的就是初始化个人博客&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h1 id=&#34;hexo初始化&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hexo初始化&#34;&gt;#&lt;/a&gt; Hexo 初始化&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;pre&gt;&lt;code class=&#34;language-cmd&#34;&gt;#在blog文件夹下初始化博客 hexo init 博客名
+&lt;h1 id=&#34;Hexo初始化&#34;&gt;&lt;a href=&#34;#Hexo初始化&#34; class=&#34;headerlink&#34; title=&#34;Hexo初始化&#34;&gt;&lt;/a&gt;Hexo初始化&lt;/h1&gt;&lt;blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;cmd&#34;&gt;#在blog文件夹下初始化博客 hexo init 博客名
 hexo init hongsheng-xu
 #进入博客所在文件夹
 cd hongsheng-xu
@@ -2611,55 +2829,59 @@ npm i hexo-deployer-git --save
 #运行博客
 hexo sever
 #上一步也可以这样写--运行博客并指定端口名
-hexo s -p 8080
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;language-cmd&#34;&gt;#列如:
+hexo s -p 8080&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;cmd&#34;&gt;#列如:
 E:\blog&amp;gt;hexo init hongsheng-xu
 E:\blog&amp;gt;cd hongsheng-xu
 E:\blog&amp;gt;hongsheng-xu&amp;gt;npm i
 E:\blog&amp;gt;hongsheng-xu&amp;gt;npm i hexo-deployer-git --save
-E:\blog&amp;gt;hongsheng-xu&amp;gt;hexo sever
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;** 输入 hexo sever 后你会看到控制台输出如下: **&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-cmd&#34;&gt;#INFO  Validating config
+E:\blog&amp;gt;hongsheng-xu&amp;gt;hexo sever&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;输入hexo sever后你会看到控制台输出如下:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;cmd&#34;&gt;#INFO  Validating config
 #INFO  Start processing
-#INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.
-&lt;/code&gt;&lt;/pre&gt;
+#INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.&lt;/code&gt;&lt;/pre&gt;
 &lt;blockquote&gt;
-&lt;p&gt;完成这一步，nodejs 会建立一个本地服务器通常会向 Windows 请求相关权限&lt;/p&gt;
-&lt;p&gt;你可以复制地址 http://localhost:4000 到浏览器的地址栏，回车就能看到个人博客啦！&lt;/p&gt;
-&lt;p&gt;同时按住 ctrl+c 可以停止服务器的运行&lt;/p&gt;
+&lt;p&gt;完成这一步,nodejs会建立一个本地服务器通常会向Windows请求相关权限&lt;/p&gt;
+&lt;p&gt;你可以复制地址 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2xvY2FsaG9zdDo0MDAw5Yiw5rWP6KeI5Zmo55qE5Zyw5Z2A5qCPLOWbnui9puWwseiDveeci+WIsOS4quS6uuWNmuWuouWVpg==&#34;&gt;http://localhost:4000到浏览器的地址栏,回车就能看到个人博客啦&lt;/span&gt;!&lt;/p&gt;
+&lt;p&gt;同时按住ctrl+c可以停止服务器的运行&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;搭建好的个人博客大概长这样&lt;/strong&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://imgchr.com/i/rSBmMd&#34;&gt;&lt;img data-src=&#34;https://s3.ax1x.com/2020/12/08/rSBmMd.md.png&#34; alt=&#34;个人博客&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;搭建好的个人博客大概长这样&lt;/strong&gt;: &lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://imgchr.com/i/rSBmMd&#34;&gt;&lt;img data-src=&#34;https://s3.ax1x.com/2020/12/08/rSBmMd.md.png&#34; alt=&#34;个人博客&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h1 id=&#34;hexo发布至github&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hexo发布至github&#34;&gt;#&lt;/a&gt; Hexo 发布至 github&lt;/h1&gt;
-&lt;blockquote&gt;
+&lt;h1 id=&#34;Hexo发布至github&#34;&gt;&lt;a href=&#34;#Hexo发布至github&#34; class=&#34;headerlink&#34; title=&#34;Hexo发布至github&#34;&gt;&lt;/a&gt;Hexo发布至github&lt;/h1&gt;&lt;blockquote&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;修改博客子目录下_config.yml&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://imgchr.com/i/ri3Y7T&#34;&gt;&lt;img data-src=&#34;https://s3.ax1x.com/2020/12/10/ri3Y7T.png&#34; alt=&#34;修改_config.yml.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;修改为 https:// 仓库名.github.io    &lt;strong&gt;这样就可以通过仓库名.github.io 去访问个人博客&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://imgchr.com/i/ri3Dj1&#34;&gt;&lt;img data-src=&#34;https://s3.ax1x.com/2020/12/10/ri3Dj1.png&#34; alt=&#34;ri3Dj1.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;找到 deploy 加入几行代码&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://imgchr.com/i/ri8V29&#34;&gt;&lt;img data-src=&#34;https://s3.ax1x.com/2020/12/10/ri8V29.png&#34; alt=&#34;ri8V29.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;修改博客子目录下_config.yml&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://imgchr.com/i/ri3Y7T&#34;&gt;&lt;img data-src=&#34;https://s3.ax1x.com/2020/12/10/ri3Y7T.png&#34; alt=&#34;修改_config.yml.png&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;修改为https://仓库名.github.io    &lt;strong&gt;这样就可以通过仓库名.github.io去访问个人博客&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://imgchr.com/i/ri3Dj1&#34;&gt;&lt;img data-src=&#34;https://s3.ax1x.com/2020/12/10/ri3Dj1.png&#34; alt=&#34;ri3Dj1.png&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;找到deploy加入几行代码&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://imgchr.com/i/ri8V29&#34;&gt;&lt;img data-src=&#34;https://s3.ax1x.com/2020/12/10/ri8V29.png&#34; alt=&#34;ri8V29.png&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure class=&#34;highlight yml&#34;&gt;&lt;figcaption data-lang=&#34;YAML&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# Deployment&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;## Docs: https://hexo.io/docs/one-command-deployment&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token key atrule&#34;&gt;deploy&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token key atrule&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; git&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token key atrule&#34;&gt;branch&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; master&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token key atrule&#34;&gt;repo&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; https&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;//github.com/hongsheng&lt;span class=&#34;token punctuation&#34;&gt;-&lt;/span&gt;xu/hongsheng&lt;span class=&#34;token punctuation&#34;&gt;-&lt;/span&gt;xu.github.io.git&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;em&gt;Tips:  这里 type 指定为 git,branch 指定为 master, 如果你有新建分支可以提交到其他分支上，repo 里写上自己仓库的地址 &amp;gt; 打开 github &amp;gt; 进入自己的博客仓库 (博客名.gthub.io 这个仓库)&amp;gt; 点击下载 code &amp;gt; 复制地址&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://imgchr.com/i/ri8XdK&#34;&gt;&lt;img data-src=&#34;https://s3.ax1x.com/2020/12/10/ri8XdK.png&#34; alt=&#34;ri8XdK.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;yml&#34;&gt;# Deployment
+## Docs: https://hexo.io/docs/one-command-deployment
+deploy:
+  type: git
+  branch: master
+  repo: https://github.com/hongsheng-xu/hongsheng-xu.github.io.git&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;Tips:  这里type指定为git,branch指定为master,如果你有新建分支可以提交到其他分支上,repo里写上自己仓库的地址&amp;gt;打开github&amp;gt;进入自己的博客仓库(博客名.gthub.io这个仓库)&amp;gt;点击下载code&amp;gt;复制地址&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://imgchr.com/i/ri8XdK&#34;&gt;&lt;img data-src=&#34;https://s3.ax1x.com/2020/12/10/ri8XdK.png&#34; alt=&#34;ri8XdK.png&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;
-&lt;p&gt;在博客所在的文件夹下点击右键打开 git bash 安装 hexo-deployer-git&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-30_11-35-31.png&#34; alt=&#34;博客文件夹&#34; /&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;在博客所在的文件夹下点击右键打开git bash安装hexo-deployer-git&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-01-30_11-35-31.png&#34; alt=&#34;博客文件夹&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 在 bash 里输入以下代码，下载 hexo-deployer-git 依赖&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;npm&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; hexo-deployer-git --save&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;接着在 bash 里，编译代码 hexo g&lt;/li&gt;
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;# 在bash里输入以下代码,下载hexo-deployer-git依赖
+npm install hexo-deployer-git --save&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;接着在bash里,编译代码hexo g&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo g&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;上传代码 (提交到分支) hexo d&lt;/li&gt;
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;hexo g&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;上传代码(提交到分支) hexo d&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo d&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;以后就可以通过 https:// 仓库名.github.io/ 去访问个人博客了，例如 https://hongsheng-xu.github.io&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;hexo d&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;以后就可以通过https://仓库名.github.io/去访问个人博客了,例如你可以戳此访问搭建好的博客: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ob25nc2hlbmcteHUuZ2l0aHViLmlvLw==&#34;&gt;https://hongsheng-xu.github.io&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 </content>
         <category term="HEXO搭建个人博客" scheme="https://honshen.xyz/categories/Hexo/" />
