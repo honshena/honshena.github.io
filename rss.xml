@@ -26,39 +26,33 @@
             <guid isPermalink="true">https://honshen.xyz/2021/02/08/Others/Git--%E4%BD%BF%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C%E6%9B%B4%E9%AB%98%E6%95%88/</guid>
             <title>Git--使团队协作更高效</title>
             <link>https://honshen.xyz/2021/02/08/Others/Git--%E4%BD%BF%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C%E6%9B%B4%E9%AB%98%E6%95%88/</link>
-            <category term="Web杂记" scheme="https://honshen.xyz/categories/Others/" />
+            <category term="Web随记" scheme="https://honshen.xyz/categories/Others/" />
             <category term="git" scheme="https://honshen.xyz/tags/git/" />
-            <category term="杂记" scheme="https://honshen.xyz/tags/%E6%9D%82%E8%AE%B0/" />
             <category term="web" scheme="https://honshen.xyz/tags/web/" />
+            <category term="随记" scheme="https://honshen.xyz/tags/%E9%9A%8F%E8%AE%B0/" />
             <pubDate>Mon, 08 Feb 2021 12:12:45 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;git&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git&#34;&gt;#&lt;/a&gt; Git&lt;/h1&gt;
-&lt;h2 id=&#34;git安装及配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git安装及配置&#34;&gt;#&lt;/a&gt; Git 安装及配置&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRmb3J3aW5kb3dzLm9yZy8=&#34;&gt;官网地址～戳我！&lt;/span&gt;&lt;/p&gt;
+            <description><![CDATA[ &lt;h1 id=&#34;Git&#34;&gt;&lt;a href=&#34;#Git&#34; class=&#34;headerlink&#34; title=&#34;Git&#34;&gt;&lt;/a&gt;Git&lt;/h1&gt;&lt;h2 id=&#34;Git安装及配置&#34;&gt;&lt;a href=&#34;#Git安装及配置&#34; class=&#34;headerlink&#34; title=&#34;Git安装及配置&#34;&gt;&lt;/a&gt;Git安装及配置&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRmb3J3aW5kb3dzLm9yZy8=&#34;&gt;官网地址~戳我!&lt;/span&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Git 配置&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Git配置&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Ctrl+R，输入 cmd&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-cmd&#34;&gt;git config --global user.name &amp;quot;hongsheng-xu&amp;quot;
+&lt;p&gt;Ctrl+R，输入cmd&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;cmd&#34;&gt;git config --global user.name &amp;quot;hongsheng-xu&amp;quot;
 git config --global user.email &amp;quot;1394948572@qq.com&amp;quot;
-git config --list
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;配置成功后：控制台将输出：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;C:%5CUsers%5C13949%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201204201635060.png&#34; alt=&#34;配置截图&#34; /&gt;&lt;/p&gt;
+git config --list&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;配置成功后:控制台将输出：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;C:\Users\13949\AppData\Roaming\Typora\typora-user-images\image-20201204201635060.png&#34; alt=&#34;配置截图&#34;&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;git初始化&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git初始化&#34;&gt;#&lt;/a&gt; Git 初始化&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;打开控制台，在 D 盘创建 Project&lt;/p&gt;
+&lt;h2 id=&#34;Git初始化&#34;&gt;&lt;a href=&#34;#Git初始化&#34; class=&#34;headerlink&#34; title=&#34;Git初始化&#34;&gt;&lt;/a&gt;Git初始化&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;打开控制台, 在D盘创建Project&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;+| myProject&lt;/p&gt;
-&lt;p&gt;​	+| .git&lt;/p&gt;
-&lt;p&gt;​	+| &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL1JFQURNRS5tZA==&#34;&gt;README.md&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;​    +| .git&lt;/p&gt;
+&lt;p&gt;​    +| README.md&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;pre&gt;&lt;code class=&#34;language-cmd&#34;&gt;#更改文件路径
+&lt;pre&gt;&lt;code class=&#34;cmd&#34;&gt;#更改文件路径
 C:\Users\13949&amp;gt;D:
 C:\Users\13949\Desktop&amp;gt;md myProject
 C:\Users\13949\Desktop&amp;gt;cd myProject
@@ -73,25 +67,20 @@ C:\Users\13949\Desktop\myProject&amp;gt;git add README.md
 C:\Users\13949\Desktop\myProject&amp;gt;git commit -m &amp;quot;add a README file&amp;quot;
 #[master (root-commit) e20f7ab] add a README file
 #1 file changed, 0 insertions(+), 0 deletions(-)
-#create mode 100644 README.md
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;language-cmd&#34;&gt;#clone项目
-C:\Users\13949\Desktop\myProject&amp;gt;git clone https://github.com/hongsheng-xu/xinzhou.github.io
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&amp;lt;em&amp;gt;Tips:MIT 许可证几乎是最宽松的版权约定，一旦你的程序采用，也就意味着别人只要在软件包含上边的版权声明，就可以对你的程序为所欲为了（包括 “使用、复制、修改、合并、出版发行、散布、再授权和 / 或贩售软件及软件的副本”）&amp;lt;/em&amp;gt;&lt;/p&gt;
+#create mode 100644 README.md&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;cmd&#34;&gt;#clone项目
+C:\Users\13949\Desktop\myProject&amp;gt;git clone https://github.com/hongsheng-xu/xinzhou.github.io&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;Tips:MIT 许可证几乎是最宽松的版权约定，一旦你的程序采用，也就意味着别人只要在软件包含上边的版权声明，就可以对你的程序为所欲为了（包括“使用、复制、修改、合并、出版发行、散布、再授权和/或贩售软件及软件的副本”）&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;git状态&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git状态&#34;&gt;#&lt;/a&gt; Git 状态&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&#34;language-cmd&#34;&gt;#使用git status查看项目里文件状态
+&lt;h2 id=&#34;Git状态&#34;&gt;&lt;a href=&#34;#Git状态&#34; class=&#34;headerlink&#34; title=&#34;Git状态&#34;&gt;&lt;/a&gt;Git状态&lt;/h2&gt;&lt;pre&gt;&lt;code class=&#34;cmd&#34;&gt;#使用git status查看项目里文件状态
 C:\Users\13949\Desktop\myProject&amp;gt;git status
 #On branch master
 #Untracked files:
 #  (use &amp;quot;git add &amp;lt;file&amp;gt;...&amp;quot; to include in what will be committed)
-# 		xinzhou.github.io/
+#         xinzhou.github.io/
 #nothing added to commit but untracked files present (use &amp;quot;git add&amp;quot; to track)
-
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;参考指南&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考指南&#34;&gt;#&lt;/a&gt; 参考指南&lt;/h2&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9lNTdhNGEyY2YwNzc=&#34;&gt;Git 使用教程&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&#34;参考指南&#34;&gt;&lt;a href=&#34;#参考指南&#34; class=&#34;headerlink&#34; title=&#34;参考指南&#34;&gt;&lt;/a&gt;参考指南&lt;/h2&gt;&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9lNTdhNGEyY2YwNzc=&#34;&gt;Git使用教程&lt;/span&gt;&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -201,100 +190,155 @@ C:\Users\13949\Desktop\myProject&amp;gt;git status
             <category term="笔记" scheme="https://honshen.xyz/tags/%E7%AC%94%E8%AE%B0/" />
             <category term="服务器" scheme="https://honshen.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" />
             <pubDate>Sat, 06 Feb 2021 12:20:45 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;docker-compose&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#docker-compose&#34;&gt;#&lt;/a&gt; Docker Compose&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;轻松高效管理容器 - 定义和运行多个容器&lt;/p&gt;
+            <description><![CDATA[ &lt;h1 id=&#34;Docker-Compose&#34;&gt;&lt;a href=&#34;#Docker-Compose&#34; class=&#34;headerlink&#34; title=&#34;Docker Compose&#34;&gt;&lt;/a&gt;Docker Compose&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;轻松高效管理容器-定义和运行多个容器&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;compose 是开源项目需要先安装&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;compose是开源项目需要先安装&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;三个步骤&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;三个步骤&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;Dockerfile&lt;/code&gt;  定义应用环境 -- 保证应用可以在任意地方可运行&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;Dockerfile&lt;/code&gt;定义应用环境–保证应用可以在任意地方可运行&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;将配置写在 &lt;code&gt;docker-compose.yml&lt;/code&gt;  文件中，类似如下:&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;version: &lt;span class=&#34;token string&#34;&gt;&#34;3.9&#34;&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;# optional since v1.27.0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;services:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  web:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    build: &lt;span class=&#34;token builtin class-name&#34;&gt;.&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    ports:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      - &lt;span class=&#34;token string&#34;&gt;&#34;5000:5000&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    volumes:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      - .:/code&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      - logvolume01:/var/log&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    links:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      - redis&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  redis:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    image: redis&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;volumes:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  logvolume01: &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;docker-compose up&lt;/code&gt;  运行项目即可&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;将配置写在&lt;code&gt;docker-compose.yml&lt;/code&gt;文件中,类似如下: &lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;version: &amp;quot;3.9&amp;quot;  # optional since v1.27.0
+services:
+  web:
+    build: .
+    ports:
+      - &amp;quot;5000:5000&amp;quot;
+    volumes:
+      - .:/code
+      - logvolume01:/var/log
+    links:
+      - redis
+  redis:
+    image: redis
+volumes:
+  logvolume01: &amp;#123;&amp;#125;&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;docker-compose up&lt;/code&gt;运行项目即可&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;compose安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#compose安装&#34;&gt;#&lt;/a&gt; Compose 安装&lt;/h1&gt;
-&lt;ul&gt;
+&lt;h1 id=&#34;Compose安装&#34;&gt;&lt;a href=&#34;#Compose安装&#34; class=&#34;headerlink&#34; title=&#34;Compose安装&#34;&gt;&lt;/a&gt;Compose安装&lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;官网地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vY29tcG9zZS9pbnN0YWxsLw==&#34;&gt;https://docs.docker.com/compose/install/&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;下载&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;curl&lt;/span&gt; -L &lt;span class=&#34;token string&#34;&gt;&#34;https://github.com/docker/compose/releases/download/1.28.2/docker-compose-&lt;span class=&#34;token variable&#34;&gt;&lt;span class=&#34;token variable&#34;&gt;$(&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;uname&lt;/span&gt; -s&lt;span class=&#34;token variable&#34;&gt;)&lt;/span&gt;&lt;/span&gt;-&lt;span class=&#34;token variable&#34;&gt;&lt;span class=&#34;token variable&#34;&gt;$(&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;uname&lt;/span&gt; -m&lt;span class=&#34;token variable&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&#34;&lt;/span&gt; -o /usr/local/bin/docker-compose&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#推荐使用下面这个地址&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;curl&lt;/span&gt; -L https://get.daocloud.io/docker/compose/releases/download/1.25.5/docker-compose-&lt;span class=&#34;token variable&#34;&gt;&lt;span class=&#34;token variable&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;uname&lt;/span&gt; -s&lt;span class=&#34;token variable&#34;&gt;`&lt;/span&gt;&lt;/span&gt;-&lt;span class=&#34;token variable&#34;&gt;&lt;span class=&#34;token variable&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;uname&lt;/span&gt; -m&lt;span class=&#34;token variable&#34;&gt;`&lt;/span&gt;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; /usr/local/bin/docker-compose&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;下载&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;sudo curl -L &amp;quot;https://github.com/docker/compose/releases/download/1.28.2/docker-compose-$(uname -s)-$(uname -m)&amp;quot; -o /usr/local/bin/docker-compose
+
+#推荐使用下面这个地址
+curl -L https://get.daocloud.io/docker/compose/releases/download/1.25.5/docker-compose-`uname -s`-`uname -m` &amp;gt; /usr/local/bin/docker-compose
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;#如果第一步没有下载下来，我们就手动去网站下载即可！&lt;br /&gt;
-# 地址: https 😕/github.com/ docker/compose/releases&lt;br /&gt;
-# 下载:docker-compose-Linux-x86_64&lt;/p&gt;
-&lt;h1 id=&#34;然后将文件上传到usrloca1bin文件夹下然后将其重命名为docker-compose&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#然后将文件上传到usrloca1bin文件夹下然后将其重命名为docker-compose&#34;&gt;#&lt;/a&gt; 然后将文件上传到 /usr/loca1/bin/ 文件夹下，然后将其重命名为 docker-compose&lt;/h1&gt;
-&lt;pre&gt;&lt;code&gt;
+&lt;p&gt;#如果第一步没有下载下来,我们就手动去网站下载即可!&lt;br&gt;   #地址: https ://github.com/ docker/compose/releases&lt;br&gt;   #下载:docker-compose-Linux-x86_64&lt;/p&gt;
+&lt;h1 id=&#34;然后将文件上传到-usr-loca1-bin-文件夹下，然后将其重命名为docker-compose&#34;&gt;&lt;a href=&#34;#然后将文件上传到-usr-loca1-bin-文件夹下，然后将其重命名为docker-compose&#34; class=&#34;headerlink&#34; title=&#34;然后将文件上传到/usr/loca1/bin/文件夹下，然后将其重命名为docker-compose&#34;&gt;&lt;/a&gt;然后将文件上传到/usr/loca1/bin/文件夹下，然后将其重命名为docker-compose&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;
 2. 授权
 
 ```shell
-sudo chmod +x /usr/local/bin/docker-compose
-&lt;/code&gt;&lt;/pre&gt;
+sudo chmod +x /usr/local/bin/docker-compose&lt;/code&gt;&lt;/pre&gt;
 &lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;
-&lt;p&gt;查看&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker-compose version&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#控制台输出如下表示安装成功&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;root@honshen bin&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;# docker-compose version&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker-compose version &lt;span class=&#34;token number&#34;&gt;1.25&lt;/span&gt;.5, build 8a1c60f6&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker-py version: &lt;span class=&#34;token number&#34;&gt;4.1&lt;/span&gt;.0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;CPython version: &lt;span class=&#34;token number&#34;&gt;3.7&lt;/span&gt;.5&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;OpenSSL version: OpenSSL &lt;span class=&#34;token number&#34;&gt;1.1&lt;/span&gt;.0l  &lt;span class=&#34;token number&#34;&gt;10&lt;/span&gt; Sep &lt;span class=&#34;token number&#34;&gt;2019&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;查看&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;docker-compose version
+
+#控制台输出如下表示安装成功
+[root@honshen bin]# docker-compose version
+docker-compose version 1.25.5, build 8a1c60f6
+docker-py version: 4.1.0
+CPython version: 3.7.5
+OpenSSL version: OpenSSL 1.1.0l  10 Sep 2019&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h1 id=&#34;getting-started&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#getting-started&#34;&gt;#&lt;/a&gt; Getting Started&lt;/h1&gt;
-&lt;ul&gt;
+&lt;h1 id=&#34;Getting-Started&#34;&gt;&lt;a href=&#34;#Getting-Started&#34; class=&#34;headerlink&#34; title=&#34;Getting Started&#34;&gt;&lt;/a&gt;Getting Started&lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;官网地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vY29tcG9zZS9nZXR0aW5nc3RhcnRlZC8=&#34;&gt;https://docs.docker.com/compose/gettingstarted/&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;流程:
-&lt;ol&gt;
-&lt;li&gt;创建网络，生成一个默认网络：文件夹_default, 且服务都是在同一网段下，可以通过域名互相访问&lt;/li&gt;
-&lt;li&gt;执行 Dockerfile&lt;/li&gt;
+&lt;li&gt;流程:&lt;ol&gt;
+&lt;li&gt;创建网络,生成一个默认网络: 文件夹_default,且服务都是在同一网段下,可以通过域名互相访问&lt;/li&gt;
+&lt;li&gt;执行Dockerfile&lt;/li&gt;
 &lt;li&gt;启动服务&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
-&lt;li&gt;默认服务名：文件名_服务名_副本数量&lt;/li&gt;
-&lt;li&gt;集群的服务一遍有多个副本 (运行实例), 项目一定是弹性的，多个副本保证高可用高并发&lt;/li&gt;
+&lt;li&gt;默认服务名: 文件名_服务名_副本数量 &lt;/li&gt;
+&lt;li&gt;集群的服务一遍有多个副本(运行实例),项目一定是弹性的,多个副本保证高可用高并发&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;停止&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#停止&#34;&gt;#&lt;/a&gt; 停止&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;运行时停止&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Ctrl+C&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;进入 &lt;code&gt;docker-compose.yml&lt;/code&gt;  所在文件夹，通过命令停止&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker-compose down&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;docker-composeyml的编写规则&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#docker-composeyml的编写规则&#34;&gt;#&lt;/a&gt; docker-compose.yml 的编写规则&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;官方示例: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vY29tcG9zZS9jb21wb3NlLWZpbGUvY29tcG9zZS1maWxlLXYzLw==&#34;&gt;https://docs.docker.com/compose/compose-file/compose-file-v3/&lt;/span&gt;&lt;/p&gt;
-&lt;figure class=&#34;highlight yml&#34;&gt;&lt;figcaption data-lang=&#34;YAML&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 3 层&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token key atrule&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;&#39;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;# 版本号&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token key atrule&#34;&gt;services&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;# 服务&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token key atrule&#34;&gt;服务1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;# docker 配置&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		&lt;span class=&#34;token key atrule&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		&lt;span class=&#34;token key atrule&#34;&gt;build&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		&lt;span class=&#34;token key atrule&#34;&gt;network&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		&lt;span class=&#34;token punctuation&#34;&gt;...&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token key atrule&#34;&gt;服务2&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;# 配置&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token punctuation&#34;&gt;...&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 其他配置：网络，卷挂载，全局规则&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token key atrule&#34;&gt;volumes&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token key atrule&#34;&gt;networks&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;configs&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
-&lt;li&gt;当你的服务依赖于其他应用时需要先启动其他服务使用 &lt;code&gt;depends_on&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-02-06_13-06-41.png&#34; alt=&#34;注意服务的启动顺序&#34; /&gt;&lt;/p&gt;
+&lt;h1 id=&#34;停止&#34;&gt;&lt;a href=&#34;#停止&#34; class=&#34;headerlink&#34; title=&#34;停止&#34;&gt;&lt;/a&gt;停止&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;运行时停止&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;Ctrl+C&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;进入&lt;code&gt;docker-compose.yml&lt;/code&gt;所在文件夹,通过命令停止&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;docker-compose down&lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;一键部署wordpress&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一键部署wordpress&#34;&gt;#&lt;/a&gt; 一键部署 WordPress&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;新建一个 WordPress 的文件夹&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;mkdir&lt;/span&gt; MyWordPress&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;新建 docker-compose.yml&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;vim&lt;/span&gt; docker-compose.yml&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;复制以下配置到 yml 中并按下 esc 后在输入 &lt;code&gt;:wq&lt;/code&gt;  退出&lt;/p&gt;
-&lt;figure class=&#34;highlight yml&#34;&gt;&lt;figcaption data-lang=&#34;YAML&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token key atrule&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;3.3&#39;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token key atrule&#34;&gt;services&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token key atrule&#34;&gt;db&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     &lt;span class=&#34;token key atrule&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; mysql&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;5.7&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     &lt;span class=&#34;token key atrule&#34;&gt;volumes&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;       &lt;span class=&#34;token punctuation&#34;&gt;-&lt;/span&gt; db_data&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;/var/lib/mysql&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     &lt;span class=&#34;token key atrule&#34;&gt;restart&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; always&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     &lt;span class=&#34;token key atrule&#34;&gt;environment&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;       &lt;span class=&#34;token key atrule&#34;&gt;MYSQL_ROOT_PASSWORD&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; somewordpress&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;       &lt;span class=&#34;token key atrule&#34;&gt;MYSQL_DATABASE&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; wordpress&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;       &lt;span class=&#34;token key atrule&#34;&gt;MYSQL_USER&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; wordpress&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;       &lt;span class=&#34;token key atrule&#34;&gt;MYSQL_PASSWORD&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; wordpress&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token key atrule&#34;&gt;wordpress&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     &lt;span class=&#34;token key atrule&#34;&gt;depends_on&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;       &lt;span class=&#34;token punctuation&#34;&gt;-&lt;/span&gt; db&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     &lt;span class=&#34;token key atrule&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; wordpress&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;latest&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     &lt;span class=&#34;token key atrule&#34;&gt;ports&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;       &lt;span class=&#34;token punctuation&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;8000:80&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     &lt;span class=&#34;token key atrule&#34;&gt;restart&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; always&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     &lt;span class=&#34;token key atrule&#34;&gt;environment&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;       &lt;span class=&#34;token key atrule&#34;&gt;WORDPRESS_DB_HOST&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; db&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;3306&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;       &lt;span class=&#34;token key atrule&#34;&gt;WORDPRESS_DB_USER&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; wordpress&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;       &lt;span class=&#34;token key atrule&#34;&gt;WORDPRESS_DB_PASSWORD&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; wordpress&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;       &lt;span class=&#34;token key atrule&#34;&gt;WORDPRESS_DB_NAME&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; wordpress&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token key atrule&#34;&gt;volumes&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;28&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token key atrule&#34;&gt;db_data&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;运行 WordPress&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 前台运行&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker-compose up&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#后台运行&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker-compose up -d&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;查看 WordPress 站点&lt;/p&gt;
-&lt;p&gt;你可以尝试访问服务器的公网 ip:  &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3huLS1pcC14ejRjcTQ1bzo4MDAw&#34;&gt;http:// 公网 ip:8000&lt;/span&gt;, 并开始使用 WordPress&lt;/p&gt;
+&lt;h1 id=&#34;docker-compose-yml的编写规则&#34;&gt;&lt;a href=&#34;#docker-compose-yml的编写规则&#34; class=&#34;headerlink&#34; title=&#34;docker-compose.yml的编写规则&#34;&gt;&lt;/a&gt;docker-compose.yml的编写规则&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;官方示例: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vY29tcG9zZS9jb21wb3NlLWZpbGUvY29tcG9zZS1maWxlLXYzLw==&#34;&gt;https://docs.docker.com/compose/compose-file/compose-file-v3/&lt;/span&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;yml&#34;&gt;# 3层
+
+version: &amp;#39;&amp;#39; # 版本号
+services: # 服务
+    服务1: # docker配置
+        image:
+        build:
+        network:
+        ...
+    服务2: # 配置
+    ...
+# 其他配置:网络,卷挂载,全局规则
+volumes:
+networks:
+configs:&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;当你的服务依赖于其他应用时需要先启动其他服务使用&lt;code&gt;depends_on&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://images-1300732204.cos.ap-chengdu.myqcloud.com/MarkDown/Snipaste_2021-02-06_13-06-41.png&#34; alt=&#34;注意服务的启动顺序&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;一键部署WordPress&#34;&gt;&lt;a href=&#34;#一键部署WordPress&#34; class=&#34;headerlink&#34; title=&#34;一键部署WordPress&#34;&gt;&lt;/a&gt;一键部署WordPress&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;新建一个WordPress的文件夹&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;mkdir MyWordPress&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;新建docker-compose.yml&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;vim docker-compose.yml&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;复制以下配置到yml中并按下esc后在输入&lt;code&gt;:wq&lt;/code&gt;退出&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;yml&#34;&gt;version: &amp;#39;3.3&amp;#39;
+
+services:
+   db:
+     image: mysql:5.7
+     volumes:
+       - db_data:/var/lib/mysql
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: somewordpress
+       MYSQL_DATABASE: wordpress
+       MYSQL_USER: wordpress
+       MYSQL_PASSWORD: wordpress
+
+   wordpress:
+     depends_on:
+       - db
+     image: wordpress:latest
+     ports:
+       - &amp;quot;8000:80&amp;quot;
+     restart: always
+     environment:
+       WORDPRESS_DB_HOST: db:3306
+       WORDPRESS_DB_USER: wordpress
+       WORDPRESS_DB_PASSWORD: wordpress
+       WORDPRESS_DB_NAME: wordpress
+volumes:
+    db_data: &amp;#123;&amp;#125;&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;运行WordPress&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;shell&#34;&gt;# 前台运行
+docker-compose up
+#后台运行
+docker-compose up -d
+#重新打包运行
+docker-compose up --build&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;查看WordPress站点&lt;/p&gt;
+&lt;p&gt;你可以尝试访问服务器的公网ip:  http://公网ip:8000,并开始使用WordPress&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
  ]]></description>
